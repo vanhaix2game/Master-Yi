@@ -1,0 +1,714 @@
+{
+  "workflows": [
+    {
+      "id": "factory-pxh-pm-1786423036362",
+      "name": "Project Manager (pxh-pm)",
+      "description": "CEO / Project Manager. Phân tích yêu cầu, triệu tập họp, chọn workflow + skill, route task, enforce policy.",
+      "resume": "Tầng 2 - Điều phối. Default agent của pxhopencode. Phân tích yêu cầu, triệu tập meeting, chọn workflow + skill, route Task contracts, enforce retry/recovery/reflection. Là đầu mối giao việc.",
+      "status": "ready",
+      "employee_icon": "assistant_a",
+      "pxh_agent": "pxh-pm",
+      "pxh_role": "PM - Điều phối dự án",
+      "pxh_tier": "T2",
+      "steps": [
+        {
+          "id": "step-pxh-pm-1",
+          "title": "Giao viec pxh-pm",
+          "desc": "Nhap mo ta cong viec -> agent pxh-pm phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Project Manager (pxh-pm)\\Giao viec pxh-pm"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Project Manager (pxh-pm)\\Giao viec pxh-pm"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Project Manager (pxh-pm)\\Giao viec pxh-pm"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Project Manager (pxh-pm)\\Giao viec pxh-pm",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-pm\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-pm (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-architect-1786423036362",
+      "name": "Kiến trúc sư (pxh-architect)",
+      "description": "Thiết kế kiến trúc, chọn tech stack, database, API design, data flow, deployment.",
+      "resume": "Tầng 3 - Nhân công. Kiến trúc sư hệ thống: thiết kế kiến trúc, chọn tech stack, database, API design, data flow, deployment. Triệu tập bởi PM.",
+      "status": "ready",
+      "employee_icon": "assistant_b",
+      "pxh_agent": "pxh-architect",
+      "pxh_role": "Architect - Thiết kế hệ thống",
+      "pxh_tier": "T3",
+      "steps": [
+        {
+          "id": "step-pxh-architect-1",
+          "title": "Giao viec pxh-architect",
+          "desc": "Nhap mo ta cong viec -> agent pxh-architect phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kiến trúc sư (pxh-architect)\\Giao viec pxh-architect"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kiến trúc sư (pxh-architect)\\Giao viec pxh-architect"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kiến trúc sư (pxh-architect)\\Giao viec pxh-architect"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Kiến trúc sư (pxh-architect)\\Giao viec pxh-architect",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-architect\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-architect (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-expert-1786423036362",
+      "name": "Lập trình viên (pxh-expert)",
+      "description": "Vibe coding: phân tích yêu cầu, chọn workflow + skill, code tự động. \"Viết giúp code này\".",
+      "resume": "Tầng 3 - Nhân công. Agent vibe coding: phân tích yêu cầu, chọn workflow + skill, code tự động. Read → Code → Run → Iterate. Không hỏi - LÀM.",
+      "status": "ready",
+      "employee_icon": "assistant_c",
+      "pxh_agent": "pxh-expert",
+      "pxh_role": "Vibe Coder - Code tự động",
+      "pxh_tier": "T3",
+      "steps": [
+        {
+          "id": "step-pxh-expert-1",
+          "title": "Giao viec pxh-expert",
+          "desc": "Nhap mo ta cong viec -> agent pxh-expert phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Lập trình viên (pxh-expert)\\Giao viec pxh-expert"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Lập trình viên (pxh-expert)\\Giao viec pxh-expert"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Lập trình viên (pxh-expert)\\Giao viec pxh-expert"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Lập trình viên (pxh-expert)\\Giao viec pxh-expert",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-expert\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-expert (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-qa-1786423036362",
+      "name": "Kỹ sư QA (pxh-qa)",
+      "description": "Tự động chạy test, kiểm tra chất lượng, validate tính năng, phát hiện bug, xác nhận fix.",
+      "resume": "Tầng 3 - Nhân công / Kiểm thử. QA Engineer. Tự động chạy test, kiểm tra chất lượng, validate tính năng, phát hiện bug, xác nhận fix. Không release nếu chưa pass QA.",
+      "status": "ready",
+      "employee_icon": "assistant_d",
+      "pxh_agent": "pxh-qa",
+      "pxh_role": "QA - Kiểm thử chất lượng",
+      "pxh_tier": "T3",
+      "steps": [
+        {
+          "id": "step-pxh-qa-1",
+          "title": "Giao viec pxh-qa",
+          "desc": "Nhap mo ta cong viec -> agent pxh-qa phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kỹ sư QA (pxh-qa)\\Giao viec pxh-qa"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kỹ sư QA (pxh-qa)\\Giao viec pxh-qa"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kỹ sư QA (pxh-qa)\\Giao viec pxh-qa"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Kỹ sư QA (pxh-qa)\\Giao viec pxh-qa",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-qa\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-qa (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-devops-1786423036362",
+      "name": "Kỹ sư Build (pxh-devops)",
+      "description": "Build Engineer: lint → typecheck → test → build. Không build nếu chưa pass QA và review.",
+      "resume": "Tầng 3 - Nhân công / Xây dựng. Build Engineer. Chịu trách nhiệm build: lint → typecheck → test → build. Không build nếu chưa pass QA và code review. User tự deploy.",
+      "status": "ready",
+      "employee_icon": "assistant_e",
+      "pxh_agent": "pxh-devops",
+      "pxh_role": "DevOps - Build & Deploy",
+      "pxh_tier": "T3",
+      "steps": [
+        {
+          "id": "step-pxh-devops-1",
+          "title": "Giao viec pxh-devops",
+          "desc": "Nhap mo ta cong viec -> agent pxh-devops phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kỹ sư Build (pxh-devops)\\Giao viec pxh-devops"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kỹ sư Build (pxh-devops)\\Giao viec pxh-devops"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Kỹ sư Build (pxh-devops)\\Giao viec pxh-devops"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Kỹ sư Build (pxh-devops)\\Giao viec pxh-devops",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-devops\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-devops (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-ui-ux-1786423036362",
+      "name": "Nhà thiết kế UI/UX (pxh-ui-ux)",
+      "description": "Thiết kế giao diện & trải nghiệm: Web (React/Tailwind), Game (Phaser HUD), Tool (CLI output).",
+      "resume": "Tầng 3 - Nhân công / UI/UX. Thiết kế giao diện & trải nghiệm người dùng. Web (React/Tailwind), Game (Phaser HUD), Tool (CLI output). Responsive, dark mode, animation, accessibility.",
+      "status": "ready",
+      "employee_icon": "assistant_d",
+      "pxh_agent": "pxh-ui-ux",
+      "pxh_role": "UI/UX Designer",
+      "pxh_tier": "T3",
+      "steps": [
+        {
+          "id": "step-pxh-ui-ux-1",
+          "title": "Giao viec pxh-ui-ux",
+          "desc": "Nhap mo ta cong viec -> agent pxh-ui-ux phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Nhà thiết kế UI_UX (pxh-ui-ux)\\Giao viec pxh-ui-ux"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Nhà thiết kế UI_UX (pxh-ui-ux)\\Giao viec pxh-ui-ux"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Nhà thiết kế UI_UX (pxh-ui-ux)\\Giao viec pxh-ui-ux"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Nhà thiết kế UI_UX (pxh-ui-ux)\\Giao viec pxh-ui-ux",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-ui-ux\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-ui-ux (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-fix-bugs-1786423036362",
+      "name": "Thợ săn bug (pxh-fix-bugs)",
+      "description": "Chuyên gia săn lỗi: phân tích stack trace, tìm root cause, sửa chính xác.",
+      "resume": "Tầng 3 - Nhân công. Chuyên gia săn lỗi: phân tích stack trace, tìm root cause, sửa chính xác. Một lỗi - một fix. Hiểu trước khi sửa. Không refactor.",
+      "status": "ready",
+      "employee_icon": "assistant_g",
+      "pxh_agent": "pxh-fix-bugs",
+      "pxh_role": "Bug Hunter - Sửa lỗi",
+      "pxh_tier": "T3",
+      "steps": [
+        {
+          "id": "step-pxh-fix-bugs-1",
+          "title": "Giao viec pxh-fix-bugs",
+          "desc": "Nhap mo ta cong viec -> agent pxh-fix-bugs phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Thợ săn bug (pxh-fix-bugs)\\Giao viec pxh-fix-bugs"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Thợ săn bug (pxh-fix-bugs)\\Giao viec pxh-fix-bugs"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Thợ săn bug (pxh-fix-bugs)\\Giao viec pxh-fix-bugs"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Thợ săn bug (pxh-fix-bugs)\\Giao viec pxh-fix-bugs",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-fix-bugs\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-fix-bugs (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-review-code-1786423036362",
+      "name": "Chuyên gia Review (pxh-review-code)",
+      "description": "Review code: chất lượng, bảo mật, hiệu năng, maintainability, conventions, testing.",
+      "resume": "Tầng 3 - Nhân công / Rà soát. Chuyên gia review code. Kiểm tra chất lượng, bảo mật, hiệu năng, maintainability, coding conventions, testing. Security > Performance > Quality > Convention.",
+      "status": "ready",
+      "employee_icon": "assistant_h",
+      "pxh_agent": "pxh-review-code",
+      "pxh_role": "Code Reviewer",
+      "pxh_tier": "T3",
+      "steps": [
+        {
+          "id": "step-pxh-review-code-1",
+          "title": "Giao viec pxh-review-code",
+          "desc": "Nhap mo ta cong viec -> agent pxh-review-code phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Chuyên gia Review (pxh-review-code)\\Giao viec pxh-review-code"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Chuyên gia Review (pxh-review-code)\\Giao viec pxh-review-code"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Chuyên gia Review (pxh-review-code)\\Giao viec pxh-review-code"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Chuyên gia Review (pxh-review-code)\\Giao viec pxh-review-code",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-review-code\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-review-code (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-help-1786423036362",
+      "name": "Hướng dẫn viên (pxh-help)",
+      "description": "Tư vấn chọn workflow, validate input, chuyển thành Request contract. KHÔNG code.",
+      "resume": "Tầng 1 - Giao diện. Tư vấn chọn workflow, validate input, chuyển thành Request contract cho Orchestration. KHÔNG code.",
+      "status": "ready",
+      "employee_icon": "assistant_i",
+      "pxh_agent": "pxh-help",
+      "pxh_role": "Help - Tư vấn workflow",
+      "pxh_tier": "T1",
+      "steps": [
+        {
+          "id": "step-pxh-help-1",
+          "title": "Giao viec pxh-help",
+          "desc": "Nhap mo ta cong viec -> agent pxh-help phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Hướng dẫn viên (pxh-help)\\Giao viec pxh-help"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Hướng dẫn viên (pxh-help)\\Giao viec pxh-help"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Hướng dẫn viên (pxh-help)\\Giao viec pxh-help"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Hướng dẫn viên (pxh-help)\\Giao viec pxh-help",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-help\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-help (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "factory-pxh-save-history-1786423036362",
+      "name": "Thư ký lịch sử (pxh-save-history)",
+      "description": "Thu ký ghi lại lịch sử quyết định kỹ thuật, tóm tắt phiên, persist state, checkpoint.",
+      "resume": "Tầng 4 - Hệ tầng. Thu ký ghi lại lịch sử quyết định kỹ thuật. Tóm tắt phiên, rationale, hướng đi đã thử, kết quả. Persist state, logging, checkpoint, recovery.",
+      "status": "ready",
+      "employee_icon": "assistant_g",
+      "pxh_agent": "pxh-save-history",
+      "pxh_role": "Historian - Ghi nhật ký",
+      "pxh_tier": "T4",
+      "steps": [
+        {
+          "id": "step-pxh-save-history-1",
+          "title": "Giao viec pxh-save-history",
+          "desc": "Nhap mo ta cong viec -> agent pxh-save-history phan tich/thuc hien. Output: result.md + result.json + log.",
+          "type": "script",
+          "fields": [
+            {
+              "id": "task",
+              "label": "Yeu cau / mo ta cong viec",
+              "type": "textarea",
+              "placeholder": "VD: Phan tich kien truc ung dung hien tai, de xuat tach module.",
+              "required": true
+            },
+            {
+              "id": "project_dir",
+              "label": "Thu muc du an (chua opencode.json cua pxhopencode)",
+              "type": "text",
+              "default": "D:\\Project\\LV\\MASTER\\pxhopencode",
+              "required": false
+            },
+            {
+              "id": "model",
+              "label": "Model tuy chon (de trong de dung mac dinh)",
+              "type": "text",
+              "required": false
+            }
+          ],
+          "outputs": [
+            {
+              "label": "Ket qua Markdown",
+              "filename": "result.md",
+              "type": "Markdown",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Thư ký lịch sử (pxh-save-history)\\Giao viec pxh-save-history"
+            },
+            {
+              "label": "Ket qua JSON",
+              "filename": "result.json",
+              "type": "JSON",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Thư ký lịch sử (pxh-save-history)\\Giao viec pxh-save-history"
+            },
+            {
+              "label": "Log OpenCode tho",
+              "filename": "opencode_raw.log",
+              "type": "Text",
+              "path": "D:/Project/LV/MASTER/FlowFactory/outputs/Thư ký lịch sử (pxh-save-history)\\Giao viec pxh-save-history"
+            }
+          ],
+          "outputPath": "D:/Project/LV/MASTER/FlowFactory/outputs/Thư ký lịch sử (pxh-save-history)\\Giao viec pxh-save-history",
+          "dependsOn": [],
+          "actions": [
+            {
+              "type": "run_script",
+              "label": "Chay yeu cau"
+            }
+          ],
+          "script": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\nimport os, subprocess, sys\n\nOUT = r\"${OUT}\"\nos.makedirs(OUT, exist_ok=True)\n\ntask = \"\"\"{task}\"\"\"\nproject_dir = r\"{project_dir}\" or r\"D:\\Project\\LV\\MASTER\\pxhopencode\"\nmodel = r\"{model}\".strip()\n\ntask_file = os.path.join(OUT, \"_task.txt\")\ntry:\n    with open(task_file, \"w\", encoding=\"utf-8\") as f:\n        f.write(task)\nexcept OSError as exc:\n    print(\"ERR: khong ghi duoc task_file:\", exc)\n    sys.exit(1)\n\ncmd = [sys.executable, r\"D:\\\\Project\\\\LV\\\\MASTER\\\\FlowFactory\\\\opencode_bridge.py\",\n       \"--agent\", \"pxh-save-history\", \"--task-file\", task_file,\n       \"--dir\", project_dir, \"--out\", OUT]\nif model:\n    cmd += [\"--model\", model]\n\nprint(\"Dang goi pxh-save-history (opencode CLI)...\")\nproc = subprocess.run(cmd, capture_output=True, text=True,\n                      encoding=\"utf-8\", errors=\"replace\", timeout=1800)\nif proc.stdout:\n    print(proc.stdout, end=\"\")\nif proc.stderr:\n    sys.stderr.write(proc.stderr)\nsys.exit(proc.returncode)\n",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

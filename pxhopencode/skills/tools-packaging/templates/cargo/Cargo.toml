@@ -1,0 +1,14 @@
+[package]
+name = "my-tool"
+version = "1.0.0"
+edition = "2021"
+description = "CLI tool"
+license = "MIT"
+
+[[bin]]
+name = "my-tool"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Game Preview — pxhopencode" />
+  <title>Game Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: oklch(0.05 0 0); font-family: 'Segoe UI', system-ui, sans-serif; }
+    #game, #app { width: 100%; height: 100%; }
+    canvas { display: block; }
+    #fps { position: fixed; top: 8px; left: 8px; color: oklch(0.7 0.25 200 / 0.6); font: 11px 'Courier New', monospace; z-index: 100; pointer-events: none; text-shadow: 0 0 4px oklch(0 0 0 / 0.8); }
+  </style>
+</head>
+<body>
+  <div id="fps" aria-hidden="true"></div>
+  <div id="game"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

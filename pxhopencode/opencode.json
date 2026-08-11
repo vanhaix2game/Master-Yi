@@ -1,0 +1,116 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "pxh-pm",
+  "instructions": [
+    "_shared/core-rules.md"
+  ],
+
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "tail_turns": 3,
+    "reserved": 10000
+  },
+
+  "tool_output": {
+    "max_lines": 50,
+    "max_bytes": 4096
+  },
+
+  "skills": {
+    "paths": ["skills"]
+  },
+
+  "agent": {
+    "pxh-pm": { "description": "T2 Orchestrator", "mode": "primary", "steps": 12, "temperature": 0.1, "permission": { "edit": "deny", "task": "allow" } },
+    "pxh-architect": { "description": "T3 Architect", "mode": "subagent", "steps": 8, "temperature": 0.1, "permission": { "edit": "deny" } },
+    "pxh-qa": { "description": "T3 QA", "mode": "subagent", "steps": 8, "temperature": 0.1 },
+    "pxh-devops": { "description": "T3 Build", "mode": "subagent", "steps": 8, "temperature": 0.1, "permission": { "edit": "deny" } },
+    "pxh-help": { "description": "T1 Interface", "mode": "primary", "steps": 4, "temperature": 0.1, "permission": { "edit": "deny", "bash": "deny" } },
+    "pxh-expert": { "description": "T3 Vibe Coder", "mode": "subagent", "steps": 20, "temperature": 0.2, "permission": { "edit": "allow" } },
+    "pxh-fix-bugs": { "description": "T3 Bug Hunter", "mode": "subagent", "steps": 16, "temperature": 0.1, "permission": { "edit": "allow" } },
+    "pxh-review-code": {
+      "description": "T3 Code Reviewer",
+      "mode": "subagent",
+      "steps": 8,
+      "temperature": 0.1,
+      "permission": { "edit": "deny" }
+    },
+    "pxh-save-history": { "description": "T4 Historian", "mode": "subagent", "steps": 5, "temperature": 0.1, "permission": { "edit": "allow" } },
+    "pxh-ui-ux": { "description": "T3 UI/UX Designer", "mode": "subagent", "steps": 16, "temperature": 0.35, "permission": { "edit": "allow" } }
+  },
+
+  "command": {
+    "vibe": { "template": ".opencode/workflows/company.workflow.md" },
+    "meeting": { "template": ".opencode/workflows/meeting.workflow.md" },
+    "release": { "template": ".opencode/workflows/release.workflow.md" },
+    "debug": { "template": ".opencode/workflows/debug.workflow.md" },
+    "web": { "template": ".opencode/workflows/web.workflow.md" },
+    "3d": {
+      "description": "3D web experience — Three.js, React Three Fiber, Spline, WebGL, interactive 3D scenes, product configurators",
+      "template": "Load `.opencode/skills/3d-web-experience/SKILL.md`. Dùng `.opencode/workflows/web.workflow.md` với `classified_skills: 3d-web-experience`."
+    },
+    "game": {
+      "description": "Phát triển game HTML5 — support 2D (Phaser), 3D (Three.js), Isometric. Load orchestrator + workflow.",
+      "template": "Load `.opencode/skills/game-development/SKILL.md` → route đến đúng sub-skill theo platform/dimension. Sau đó chạy `.opencode/workflows/game.workflow.md`."
+    },
+    "ai": { "template": ".opencode/workflows/ai.workflow.md" },
+    "tool": { "template": ".opencode/workflows/tool.workflow.md" },
+    "ui-ux": {
+      "description": "UI/UX design — web (React/Tailwind), game HUD, CLI output",
+      "template": "Load `.opencode/skills/ui-ux/SKILL.md`. Chạy design workflow."
+    },
+    "preview": {
+      "description": "Start game live preview dev server (Vite HMR + browser auto-open)",
+      "template": "Load `.opencode/skills/games-preview/SKILL.md`. Then run: `npm run dev` (hoặc `npx vite --open --host` nếu chưa có script)."
+    },
+    "compile": {
+      "description": "Prompt Compiler — phân tích intent, extract constraints, sinh IR, tối ưu prompt cho LLM backend. Zero AI, zero token.",
+      "template": "Load `.opencode/skills/prompt-compiler/SKILL.md`. Input → Pipeline 14 stages → IR → Backend prompt."
+    },
+    "init": {
+      "description": "Khởi tạo project mới với scaffold wizard",
+      "template": "Chạy: `node .opencode/runtime/bin/vibe.mjs init` hoặc `powershell -ExecutionPolicy Bypass -File .opencode/_shared/scripts/start.ps1 -Help`"
+    },
+    "status": {
+      "description": "Xem trạng thái session, memory, pipeline",
+      "template": "Chạy: `node .opencode/runtime/bin/vibe.mjs status`"
+    },
+    "feedback": {
+      "description": "Gửi feedback về session hiện tại",
+      "template": "Chạy: `node .opencode/runtime/bin/vibe.mjs feedback` — nhập nội dung feedback"
+    },
+    "resume": {
+      "description": "Tiếp tục session dang dở",
+      "template": "Chạy: `node .opencode/runtime/bin/vibe.mjs resume` — kiểm tra pipeline state và tiếp tục"
+    },
+    "validate": {
+      "description": "Kiểm tra engine contracts, pipeline, router integrity",
+      "template": "Chạy: `node .opencode/runtime/bin/validate.mjs [contracts|pipeline|router|memory|all]`"
+    },
+    "pipeline": {
+      "description": "Quản lý pipeline: trạng thái, start, pass/fail phase, watch live",
+      "template": "Chạy: `node .opencode/runtime/bin/pipeline.mjs [status|start|pass|fail|reset|watch] [phase]`"
+    },
+    "diff": {
+      "description": "Xem diff changes và rollback file",
+      "template": "Chạy: `node .opencode/runtime/bin/diff.mjs [diff|rollback|log|show] [file|commit]`"
+    },
+    "secret": {
+      "description": "Quản lý secrets: set/get/delete/list API keys, tokens",
+      "template": "Chạy: `node .opencode/runtime/bin/secret.mjs [set|get|list|rm|env] [KEY|KEY=VALUE]`"
+    },
+    "detect": {
+      "description": "Tự động phát hiện project type, framework, language",
+      "template": "Chạy: `node .opencode/runtime/bin/detect.mjs` — đọc package.json, Cargo.toml, pyproject.toml"
+    },
+    "context": {
+      "description": "Xem và quản lý session context (recent prompts)",
+      "template": "Chạy: `node .opencode/runtime/bin/context.mjs [show|add|clear|export] [prompt]`"
+    },
+    "enforce": {
+      "description": "ENFORCEMENT GATE: tự động validate + pipeline + context + detect. BẮT BUỘC trước mỗi phase.",
+      "template": "Chạy: `node .opencode/runtime/bin/enforce.mjs [run|pass|fail|phase] [phase_name]`\n\nIRON LAW:\n- `enforce run <phase>` — PRE-hooks: validate contracts, inject context, start pipeline, detect project\n- `enforce pass <phase>` — POST-hooks: pipeline pass, context update\n- `enforce fail <phase>` — POST-hooks: pipeline fail, context update\n- Nếu enforce run FAILED → KHÔNG proceed. Fix lỗi trước.\n- Skip enforce = violation."
+    }
+  }
+}

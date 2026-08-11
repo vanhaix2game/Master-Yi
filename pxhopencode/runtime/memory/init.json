@@ -1,0 +1,19 @@
+{
+  "seed": true,
+  "version": "1.0",
+  "files": {
+    "index.json": {"version":"1.0","project_id":"","project_name":"","created":"","updated":"","memory_count":0,"confidence":0,"tags":[],"frameworks":[]},
+    "project.json": {"version":"1.0","created":"","updated":"","confidence":0,"framework":null,"language":null,"runtime":null,"package_manager":null,"build_tools":[],"ui_library":null,"testing_framework":null,"linter":null,"formatter":null,"game_engine":null,"deployment_target":[],"folder_structure":[],"conventions":{}},
+    "architecture.json": {"version":"1.0","created":"","updated":"","confidence":0,"modules":[],"services":[],"dependencies":[],"flows":{"data":[],"event":[],"state":[],"api":[]},"tiers":[],"boundaries":[]},
+    "patterns.json": {"version":"1.0","created":"","updated":"","confidence":0,"naming":{},"imports":{},"folder_organization":[],"stores":[],"error_handling":[],"logging":[],"api_wrappers":[],"state_management":[]},
+    "bugs.json": {"version":"1.0","created":"","updated":"","bugs":[]},
+    "decisions.json": {"version":"1.0","created":"","updated":"","decisions":[]},
+    "preferences.json": {"version":"1.0","created":"","updated":"","confidence":0,"preferences":{},"habits":[],"language":"en"},
+    "workflow.json": {"version":"1.0","created":"","updated":"","confidence":0,"workflows":[],"default_sequence":[],"optimizations":[]},
+    "prompt.json": {"version":"1.0","created":"","updated":"","confidence":0,"repeated_instructions":[],"optimized_templates":[],"common_patterns":[]},
+    "vibe.json": {"version":"1.0","created":"","updated":"","confidence":0,"coding_philosophy":[],"profile":[],"preferred_approach":"patch"},
+    "snapshots.json": {"version":"1.0","created":"","updated":"","snapshots":[]},
+    "timeline.json": {"version":"1.0","created":"","updated":"","entries":[]},
+    "stats.json": {"version":"1.0","created":"","updated":"","total_memories":0,"total_bugs":0,"total_decisions":0,"total_snapshots":0,"total_patterns":0,"storage_size_bytes":0,"last_session":"","session_count":0,"avg_session_duration_ms":0}
+  }
+}

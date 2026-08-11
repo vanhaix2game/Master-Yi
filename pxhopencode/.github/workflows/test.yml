@@ -1,0 +1,48 @@
+name: CI
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  runtime-engine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: runtime/engine/package-lock.json
+      - run: npm ci
+        working-directory: runtime/engine
+      - run: npm run build
+        working-directory: runtime/engine
+      - run: npm test
+        working-directory: runtime/engine
+
+  prompt-compiler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: prompt-compiler/package-lock.json
+      - run: npm ci
+        working-directory: prompt-compiler
+      - run: npm run build
+        working-directory: prompt-compiler
+      - run: npm test
+        working-directory: prompt-compiler
+
+  release-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node _shared/scripts/release-check.mjs

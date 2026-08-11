@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    ports: ["3000:3000"]
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/app
+    depends_on: [db]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  db:
+    image: postgres:16-alpine
+    volumes: [pgdata:/var/lib/postgresql/data]
+    environment:
+      - POSTGRES_PASSWORD=password
+    restart: unless-stopped
+
+volumes:
+  pgdata:

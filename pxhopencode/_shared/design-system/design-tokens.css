@@ -1,0 +1,55 @@
+:root {
+  --brand-50: oklch(0.95 0.02 256); --brand-100: oklch(0.9 0.05 256);
+  --brand-200: oklch(0.8 0.1 256); --brand-300: oklch(0.7 0.15 256);
+  --brand-400: oklch(0.6 0.2 256); --brand-500: oklch(0.55 0.22 256);
+  --brand-600: oklch(0.45 0.2 256); --brand-700: oklch(0.35 0.17 256);
+  --brand-800: oklch(0.25 0.12 256); --brand-900: oklch(0.15 0.06 256);
+
+  --surface-50: oklch(0.99 0 0); --surface-100: oklch(0.97 0 0);
+  --surface-200: oklch(0.93 0 0); --surface-300: oklch(0.85 0 0);
+  --surface-800: oklch(0.2 0 0); --surface-850: oklch(0.15 0 0);
+  --surface-900: oklch(0.1 0 0); --surface-950: oklch(0.05 0 0);
+
+  --text-primary: oklch(0.1 0 0); --text-secondary: oklch(0.4 0 0);
+  --text-muted: oklch(0.6 0 0); --text-inverse: oklch(0.95 0 0);
+  --text-disabled: oklch(0.75 0 0);
+
+  --spacing-1: 4px; --spacing-2: 8px; --spacing-3: 12px; --spacing-4: 16px;
+  --spacing-5: 20px; --spacing-6: 24px; --spacing-8: 32px; --spacing-10: 40px;
+  --spacing-12: 48px; --spacing-16: 64px;
+
+  --radius-sm: 6px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.12);
+  --shadow-xl: 0 20px 40px -4px oklch(0 0 0 / 0.15);
+  --shadow-glow: 0 0 20px oklch(0.6 0.2 256 / 0.3);
+
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-game: 'Courier New', monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --duration-fast: 150ms; --duration-normal: 250ms; --duration-slow: 400ms;
+
+  --z-dropdown: 100; --z-sticky: 200; --z-overlay: 300; --z-modal: 400; --z-toast: 500;
+}
+
+.dark {
+  --surface-50: oklch(0.15 0 0); --surface-100: oklch(0.18 0 0);
+  --surface-200: oklch(0.22 0 0); --surface-300: oklch(0.28 0 0);
+  --surface-800: oklch(0.85 0 0); --surface-850: oklch(0.9 0 0);
+  --surface-900: oklch(0.93 0 0); --surface-950: oklch(0.97 0 0);
+
+  --text-primary: oklch(0.95 0 0); --text-secondary: oklch(0.75 0 0);
+  --text-muted: oklch(0.55 0 0); --text-inverse: oklch(0.1 0 0);
+  --text-disabled: oklch(0.35 0 0);
+
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.5);
+  --shadow-xl: 0 20px 40px -4px oklch(0 0 0 / 0.6);
+}

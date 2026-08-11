@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+outputs/
+agent_settings.json
+license.json
+device_id
+.dev.vars
+.env
+.flowfactory-test/
+.flowfactory-ui-test/

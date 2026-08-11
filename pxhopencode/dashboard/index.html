@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>pxhopencode — Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>pxhopencode <span class="dim">Dashboard</span></h1>
+    <div class="version" id="version">v?</div>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <h2>Memory</h2>
+      <div id="memory-list"><p class="dim">Loading...</p></div>
+    </div>
+    <div class="card">
+      <h2>Pipeline</h2>
+      <div id="pipeline-list"><p class="dim">Loading...</p></div>
+    </div>
+    <div class="card">
+      <h2>System</h2>
+      <table id="system-info">
+        <tr><td>Agents</td><td>10</td></tr>
+        <tr><td>Workflows</td><td>8</td></tr>
+        <tr><td>Skills</td><td>50+</td></tr>
+        <tr><td>Commands</td><td>12+</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Quick Start</h2>
+      <ul>
+        <li><code>opencode</code> — start session</li>
+        <li><code>vibe init</code> — new project</li>
+        <li><code>vibe status</code> — check status</li>
+        <li><code>vibe resume</code> — resume session</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="history">
+    <h2>Session Timeline</h2>
+    <div id="timeline"><p class="dim">No session data yet. Start coding with <code>opencode</code>.</p></div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

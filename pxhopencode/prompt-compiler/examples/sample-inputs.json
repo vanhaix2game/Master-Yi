@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Vietnamese bug fix",
+    "input": "sửa bug trong component login với React TypeScript, đừng phá code cũ",
+    "expectedIntents": ["fix_bug"],
+    "expectedConstraints": ["preserve_behavior"]
+  },
+  {
+    "name": "English game dev",
+    "input": "Create a 2D platformer with Phaser 3. Player jumps over obstacles and collects coins.",
+    "expectedIntents": ["generate_game"]
+  },
+  {
+    "name": "Performance optimization",
+    "input": "Tối ưu hiệu năng cho game 3D với Three.js, FPS đang bị chậm, giữ nguyên gameplay",
+    "expectedIntents": ["performance_optimization"],
+    "expectedConstraints": ["preserve_behavior"]
+  },
+  {
+    "name": "Mixed language",
+    "input": "Fix bug trong React component dùng TypeScript, minimal changes, no breaking changes",
+    "expectedIntents": ["fix_bug"],
+    "expectedConstraints": ["minimal_changes", "no_breaking_changes"]
+  },
+  {
+    "name": "Architecture design",
+    "input": "Thiết kế database schema cho hệ thống e-commerce với PostgreSQL và Prisma",
+    "expectedIntents": ["architecture_design"]
+  },
+  {
+    "name": "Security audit",
+    "input": "Audit bảo mật cho API authentication module, tìm lỗ hổng SQL injection",
+    "expectedIntents": ["security_audit"]
+  },
+  {
+    "name": "Code review",
+    "input": "Review code cho module xử lý payment, kiểm tra security và performance",
+    "expectedIntents": ["review_code"],
+    "expectedConstraints": ["security_first"]
+  },
+  {
+    "name": "Documentation",
+    "input": "Viết README cho project, bao gồm hướng dẫn cài đặt và API documentation",
+    "expectedIntents": ["create_documentation"]
+  },
+  {
+    "name": "Full pipeline",
+    "input": "Hãy giúp tôi viết unit test cho service AuthenticationService. Dùng Vitest và TypeScript. Giữ nguyên các test cũ. Chỉ thêm file mới.",
+    "expectedIntents": ["write_tests"],
+    "expectedConstraints": ["do_not_touch_tests", "minimal_changes"]
+  },
+  {
+    "name": "Japanese prompt",
+    "input": "ReactとTypeScriptでログインコンポーネントのバグを修正してください。既存の動作を維持してください。",
+    "expectedIntents": ["fix_bug"],
+    "expectedConstraints": ["preserve_behavior"]
+  },
+  {
+    "name": "Chinese prompt",
+    "input": "请修复React登录组件的bug，使用TypeScript，保持现有行为不变",
+    "expectedIntents": ["fix_bug"],
+    "expectedConstraints": ["preserve_behavior"]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "phases": ["analyze", "meeting", "architect", "code", "fix", "test", "review", "build", "ui-ux", "persist"],
+  "agents": {
+    "analyze": "pxh-pm",
+    "meeting": "pxh-pm",
+    "architect": "pxh-architect",
+    "code": "pxh-expert",
+    "fix": "pxh-fix-bugs",
+    "test": "pxh-qa",
+    "review": "pxh-review-code",
+    "build": "pxh-devops",
+    "ui-ux": "pxh-ui-ux",
+    "persist": "pxh-save-history"
+  }
+}

@@ -1,0 +1,35 @@
+:root {
+  --game-bg: oklch(0.05 0 0);
+  --game-surface: oklch(0.12 0 0);
+  --game-border: oklch(1 0 0 / 0.08);
+
+  --game-hp: oklch(0.65 0.25 30);
+  --game-hp-bg: oklch(0.3 0.05 30);
+  --game-hp-fill: oklch(0.6 0.25 140);
+
+  --game-score: oklch(0.7 0.15 200);
+  --game-combo: oklch(0.7 0.25 330);
+  --game-text: oklch(0.9 0 0);
+  --game-muted: oklch(0.5 0 0);
+
+  --game-accent: oklch(0.7 0.25 200);
+  --game-danger: oklch(0.65 0.25 30);
+  --game-warning: oklch(0.7 0.2 85);
+  --game-success: oklch(0.6 0.2 140);
+
+  --game-powerup: oklch(0.7 0.25 200);
+  --game-shield: oklch(0.6 0.2 240);
+
+  --game-font: 'Courier New', 'Consolas', monospace;
+
+  --game-hud-blur: blur(8px);
+  --game-glow-accent: 0 0 12px oklch(0.7 0.25 200 / 0.4);
+  --game-glow-danger: 0 0 12px oklch(0.65 0.25 30 / 0.4);
+}
+
+.light-game {
+  --game-bg: oklch(0.95 0 0);
+  --game-surface: oklch(0.9 0 0);
+  --game-text: oklch(0.15 0 0);
+  --game-muted: oklch(0.5 0 0);
+}

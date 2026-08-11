@@ -1,0 +1,17 @@
+node_modules/
+.env
+/dist/
+runtime/engine/dist/
+.next/
+*.log
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+target/
+.opencode/
+.vibe/
+.memory/
+.pipeline-state.json
+promptLog.txt
+.context.json

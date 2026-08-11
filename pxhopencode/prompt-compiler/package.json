@@ -1,0 +1,22 @@
+{
+  "name": "@pxh/prompt-compiler",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Production-grade Prompt Compiler — transforms natural language to optimized LLM prompts via canonical IR. Zero AI, zero cloud, zero token consumption.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "bench": "vitest run tests/benchmarks --reporter=verbose",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0",
+    "@types/node": "^22.0.0"
+  }
+}

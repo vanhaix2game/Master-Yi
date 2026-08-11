@@ -1,0 +1,14 @@
+{
+  "name": "@scope/my-tool",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": { "my-tool": "dist/cli.js" },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build && npm test",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "publishConfig": { "access": "public" }
+}

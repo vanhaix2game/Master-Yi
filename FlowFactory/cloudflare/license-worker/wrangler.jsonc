@@ -1,0 +1,21 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "flowfactory-license",
+	"main": "src/index.js",
+	"compatibility_date": "2026-07-18",
+	"workers_dev": true,
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "flowfactory-license",
+			"database_id": "b36b382e-3ce6-4567-a789-f018a27d2d3e",
+			"migrations_dir": "migrations"
+		}
+	],
+	"secrets": {
+		"required": [
+			"ADMIN_TOKEN",
+			"SIGNING_PRIVATE_JWK"
+		]
+	}
+}

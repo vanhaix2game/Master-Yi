@@ -1,0 +1,29 @@
+name: Deploy Game to Itch.io
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm test
+        continue-on-error: true
+      - run: npm run build
+
+      - name: Deploy to Itch.io
+        uses: josephbmanley/butler-publish-itchio-action@v1
+        with:
+          butler_api_key: ${{ secrets.BUTLER_API_KEY }}
+          game_data: ./dist
+          itch_user: ${{ secrets.ITCH_USER }}
+          itch_game: ${{ secrets.ITCH_GAME }}
+          build_file: dist.zip

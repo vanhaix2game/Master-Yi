@@ -1,0 +1,1 @@
+{"version":3,"file":"gemini.d.ts","sourceRoot":"","sources":["../../src/backends/gemini.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,WAAW,CAAC;AAC1C,OAAO,KAAK,EAAE,QAAQ,EAAE,MAAM,aAAa,CAAC;AAE5C,qBAAa,eAAgB,SAAQ,aAAa;IAChD,IAAI,EAAG,QAAQ,CAAU;IAEzB,QAAQ,CAAC,EAAE,EAAE,QAAQ,GAAG,MAAM;CAiC/B"}

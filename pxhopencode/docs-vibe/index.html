@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pxhopencode — AI Company Docs</title>
+<style>
+:root{
+  --bg:oklch(0.07 0 0);--surface:oklch(0.12 0 0);--border:oklch(1 0 0 / 0.06);
+  --t1:oklch(0.6 0.2 256);--t2:oklch(0.7 0.2 85);--t3:oklch(0.6 0.2 140);--t4:oklch(0.65 0.2 300);
+  --text:oklch(0.85 0 0);--muted:oklch(0.55 0 0);--code-bg:oklch(1 0 0 / 0.04);
+  --nav-w:240px;
+}
+@media(prefers-color-scheme:light){
+  :root{--bg:oklch(0.97 0 0);--surface:oklch(1 0 0);--border:oklch(0 0 0 / 0.08);
+  --t1:oklch(0.5 0.2 256);--t2:oklch(0.55 0.2 85);--t3:oklch(0.5 0.2 140);--t4:oklch(0.55 0.2 300);
+  --text:oklch(0.15 0 0);--muted:oklch(0.5 0 0);--code-bg:oklch(0 0 0 / 0.04);}
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+body.docs{display:flex}
+nav{position:fixed;top:0;left:0;width:var(--nav-w);height:100vh;background:var(--surface);border-right:1px solid var(--border);padding:24px 20px;overflow-y:auto}
+nav h2{font-size:.95em;margin-bottom:20px;font-weight:600;background:linear-gradient(90deg,var(--t1),var(--t4));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav a{display:block;color:var(--muted);text-decoration:none;padding:7px 0;font-size:.85em;transition:color .2s}
+nav a:hover{color:var(--t1)}
+main{flex:1;margin-left:var(--nav-w);padding:48px 64px;max-width:960px}
+section{margin:48px 0}
+h1{font-size:2.2em;margin-bottom:10px;font-weight:700;background:linear-gradient(135deg,var(--t1),var(--t3),var(--t4));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:1.35em;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border);font-weight:600}
+h3{font-size:1.05em;margin:24px 0 8px;color:var(--t1);font-weight:500}
+p{margin:10px 0;font-size:.95em}
+code{background:var(--code-bg);padding:2px 7px;border-radius:4px;font-size:.88em;font-family:'Consolas',monospace}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;font-size:.85em;margin:12px 0;font-family:'Consolas',monospace}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.9em}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+th{color:var(--muted);font-size:.78em;text-transform:uppercase;letter-spacing:.6px;font-weight:600}
+footer{text-align:center;padding:48px 24px;color:var(--muted);font-size:.8em;border-top:1px solid var(--border);margin-top:80px}
+@media(max-width:768px){
+  body.docs{flex-direction:column}
+  nav{position:relative;width:100%;height:auto;border-bottom:1px solid var(--border);padding:16px 20px}
+  main{margin-left:0;padding:24px 20px}
+}
+</style>
+</head>
+<body class="docs">
+
+<nav>
+  <h2>pxhopencode</h2>
+  <a href="#install">Cài đặt</a>
+  <a href="#usage">Sử dụng</a>
+  <a href="#commands">Commands</a>
+  <a href="#engine">Runtime Engine</a>
+  <a href="#architecture">Kiến trúc</a>
+  <a href="#agents">Agents</a>
+</nav>
+
+<main>
+
+<section id="hero">
+  <h1>pxhopencode v82.6</h1>
+  <p>AI Company cho Vibe Coding — nhúng vào project, gõ prompt, AI làm phần còn lại.</p>
+</section>
+
+<section id="install">
+  <h2>Cài đặt</h2>
+  <pre>cd project-của-bạn
+git clone https://github.com/kitajima2910/pxhopencode.git .opencode
+.opencode\start.bat</pre>
+  <p><code>start.bat</code>: remove nested .git, init memory, merge .gitignore, launch opencode.</p>
+</section>
+
+<section id="usage">
+  <h2>Sử dụng</h2>
+  <p>Trong opencode, gõ prompt tiếng Việt:</p>
+  <pre>"Xây dựng web blog với React"</pre>
+  <p>Hoặc lệnh <code>/</code>:</p>
+  <pre>/detect           # Auto-detect project framework
+/status           # Memory + pipeline state
+/diff             # Xem thay đổi
+/rollback src/    # Rollback file
+/feedback         # Gửi feedback
+/secret set OPENAI_KEY=sk-...  # Lưu secret</pre>
+</section>
+
+<section id="commands">
+  <h2>All Commands</h2>
+  <table>
+    <tr><th>Command</th><th>Chức năng</th><th>Gọi khi</th></tr>
+    <tr><td><code>/vibe</code></td><td>Full pipeline 11 bước</td><td>Dự án mới</td></tr>
+    <tr><td><code>/web</code></td><td>Web app</td><td>React, Next.js</td></tr>
+    <tr><td><code>/game</code></td><td>Game HTML5</td><td>Phaser, Three.js</td></tr>
+    <tr><td><code>/ai</code></td><td>Chatbot, RAG</td><td>LLM project</td></tr>
+    <tr><td><code>/debug</code></td><td>Debug + fix</td><td>Có bug</td></tr>
+    <tr><td><code>/status</code></td><td>Memory + pipeline state</td><td>Bất kỳ lúc</td></tr>
+    <tr><td><code>/diff</code></td><td>Xem file changes</td><td>Trước khi commit</td></tr>
+    <tr><td><code>/rollback &lt;file&gt;</code></td><td>Rollback file</td><td>Sai code</td></tr>
+    <tr><td><code>/secret set K=V</code></td><td>Lưu API key</td><td>Cần API key</td></tr>
+    <tr><td><code>/detect</code></td><td>Auto-detect framework</td><td>Đầu session</td></tr>
+    <tr><td><code>/pipeline watch</code></td><td>Live pipeline status</td><td>Theo dõi real-time</td></tr>
+    <tr><td><code>/validate</code></td><td>Check engine integrity</td><td>Verify setup</td></tr>
+    <tr><td><code>/context</code></td><td>Xem session context</td><td>Quên prompt cũ</td></tr>
+    <tr><td><code>/feedback</code></td><td>Gửi feedback</td><td>Sau session</td></tr>
+  </table>
+</section>
+
+<section id="engine">
+  <h2>Runtime Engine</h2>
+  <table>
+    <tr><th>Script</th><th>Path</th><th>Chức năng</th></tr>
+    <tr><td>validate</td><td><code>runtime/bin/validate.mjs</code></td><td>Check contracts/pipeline/memory integrity</td></tr>
+    <tr><td>pipeline</td><td><code>runtime/bin/pipeline.mjs</code></td><td>Track phase, live watch, pass/fail</td></tr>
+    <tr><td>diff</td><td><code>runtime/bin/diff.mjs</code></td><td>Git diff + rollback</td></tr>
+    <tr><td>secret</td><td><code>runtime/bin/secret.mjs</code></td><td>Key-value secrets → .opencode/.env</td></tr>
+    <tr><td>detect</td><td><code>runtime/bin/detect.mjs</code></td><td>Read package.json, Cargo.toml, pyproject.toml</td></tr>
+    <tr><td>context</td><td><code>runtime/bin/context.mjs</code></td><td>Recent prompts + session context</td></tr>
+  </table>
+  <p>119 self-tests: runtime engine + prompt compiler</p>
+</section>
+
+<section id="architecture">
+  <h2>Kiến trúc 4 Tầng</h2>
+  <table>
+    <tr><th>Tầng</th><th>Agent</th><th>Trách nhiệm</th></tr>
+    <tr><td>T1 Interface</td><td>pxh-help</td><td>Validate & classify prompt</td></tr>
+    <tr><td>T2 Orchestration</td><td>pxh-pm</td><td>Route, retry, context injection, pipeline track</td></tr>
+    <tr><td>T3 Workers</td><td>7 agents</td><td>Code, test, fix, review, build, UI/UX</td></tr>
+    <tr><td>T4 Infrastructure</td><td>pxh-save-history</td><td>State, checkpoint, log, metrics</td></tr>
+  </table>
+</section>
+
+<section id="agents">
+  <h2>10 Agents</h2>
+  <table>
+    <tr><th>Agent</th><th>Vai trò</th></tr>
+    <tr><td><code>pxh-help</code></td><td>Interface — classify input</td></tr>
+    <tr><td><code>pxh-pm</code></td><td>Orchestration — route, policy, engine commands</td></tr>
+    <tr><td><code>pxh-architect</code></td><td>Thiết kế tech stack, DB, API</td></tr>
+    <tr><td><code>pxh-expert</code></td><td>Vibe code production</td></tr>
+    <tr><td><code>pxh-fix-bugs</code></td><td>Root cause → fix</td></tr>
+    <tr><td><code>pxh-qa</code></td><td>Viết & chạy test</td></tr>
+    <tr><td><code>pxh-review-code</code></td><td>Security, perf audit</td></tr>
+    <tr><td><code>pxh-devops</code></td><td>Lint → typecheck → build</td></tr>
+    <tr><td><code>pxh-ui-ux</code></td><td>Layout, responsive</td></tr>
+    <tr><td><code>pxh-save-history</code></td><td>State, checkpoint</td></tr>
+  </table>
+</section>
+
+<footer>
+  pxhopencode v82.6 · Clone → start.bat → prompt
+</footer>
+
+</main>
+</body>
+</html>
