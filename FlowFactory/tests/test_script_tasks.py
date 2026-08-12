@@ -1,4 +1,5 @@
 import shutil
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -26,7 +27,7 @@ class ScriptTaskTest(unittest.TestCase):
             command, output_dir, tmp_script = server._script_command_for_step(factory, step, {'url': 'https://example.com'})
 
         # 產生暫存檔執行指令
-        self.assertTrue(command.startswith('python3 '))
+        self.assertTrue(command.startswith('python3 ') or 'python3.cmd' in command or sys.executable in command)
         self.assertIn(tmp_script, command)
         self.assertTrue(Path(tmp_script).is_file())
         # 本體已替換參數與輸出路徑

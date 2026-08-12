@@ -9,3 +9,4 @@ device_id
 .env
 .flowfactory-test/
 .flowfactory-ui-test/
+logs/

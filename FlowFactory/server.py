@@ -642,7 +642,35 @@ def _script_command_for_step(factory, step, values):
     fd, tmp_path = tempfile.mkstemp(suffix='.py', dir=str(tmp_dir), prefix='flowscript_')
     with os.fdopen(fd, 'w', encoding='utf-8') as f:
         f.write(body)
-    return f'python3 {tmp_path}', output_dir, tmp_path
+    return _script_command(tmp_path), output_dir, tmp_path
+
+
+def _script_command(tmp_path):
+    """產生執行腳本暫存檔的指令；Windows 使用 sys.executable（真實 python.exe），
+    避免 python3 被解析到 Microsoft Store 的 stub（exit 9009）或 .cmd shim 在
+    cmd.exe 內無法直接執行（is not recognized）。"""
+    if os.name == 'nt':
+        return f'"{sys.executable}" {tmp_path}'
+    return f'python3 {tmp_path}'
+
+
+def _windows_argv(command):
+    """Tách command string thành argv theo đúng cách cmd.exe hiểu (giữ dấu ngoặc kép)."""
+    parts = []
+    cur = ''
+    in_quote = False
+    for ch in command:
+        if ch == '"':
+            in_quote = not in_quote
+        elif ch == ' ' and not in_quote:
+            if cur:
+                parts.append(cur)
+                cur = ''
+        else:
+            cur += ch
+    if cur:
+        parts.append(cur)
+    return parts
 
 
 def _run_local_script_task(task_id, command, cwd, tmp_script=None):
@@ -652,7 +680,14 @@ def _run_local_script_task(task_id, command, cwd, tmp_script=None):
         task['started_at'] = time.time()
     _task_event(task_id, f'正在本機執行腳本：{command[:600]}', 'status')
     try:
-        runner = ['cmd.exe', '/d', '/s', '/c', command] if os.name == 'nt' else ['/bin/zsh', '-lc', command]
+        if os.name == 'nt':
+            # cmd.exe /s /c 對含引號的指令會誤判（is not recognized），
+            # 改為直接以 argv 啟動，避免 shell 再解析一次。
+            runner = _windows_argv(command)
+            start_new_session = False
+        else:
+            runner = ['/bin/zsh', '-lc', command]
+            start_new_session = True
         process = subprocess.Popen(
             runner,
             cwd=str(cwd),
@@ -662,7 +697,7 @@ def _run_local_script_task(task_id, command, cwd, tmp_script=None):
             encoding='utf-8',
             errors='replace',
             bufsize=1,
-            start_new_session=os.name != 'nt',
+            start_new_session=start_new_session,
         )
         with HERMES_TASKS_LOCK:
             task = HERMES_TASKS[task_id]
