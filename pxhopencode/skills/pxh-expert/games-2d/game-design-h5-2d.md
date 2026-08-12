@@ -69,4 +69,4 @@ Dùng `Phaser.Scale.FIT`. Xem templates: `color-palettes.ts`
 
 ## Tham khảo
 - Implementation: `game-h5-2d.md`
-- Main: `skills/games-core/SKILL.md`
+- Main: `skills/pxh-expert/games-core/SKILL.md`

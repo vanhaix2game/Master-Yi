@@ -3,7 +3,7 @@
 ## Tổng quan
 Skill phát triển game 2D HTML5 sử dụng **Phaser 3** (ưu tiên) hoặc Canvas API thuần. Phù hợp cho: platformer, top-down RPG, shoot 'em up, puzzle, card game.
 
-> **Bước 0: Download assets** — Chạy script ở `skills/games-assets/SKILL.md` trước. Dùng asset thật từ Kenney/OpenGameArt, fallback procedural nếu không có mạng.
+> **Bước 0: Download assets** — Chạy script ở `skills/pxh-expert/games-assets/SKILL.md` trước. Dùng asset thật từ Kenney/OpenGameArt, fallback procedural nếu không có mạng.
 
 ## Setup Phaser 3
 
@@ -60,6 +60,6 @@ Trong `create()`:
 Xem: `templates/build.sh`
 
 ### Tham khảo
-- Assets: `skills/games-assets/SKILL.md`
+- Assets: `skills/pxh-expert/games-assets/SKILL.md`
 - Design: `game-design-h5-2d.md`
-- Main game skill: `skills/games-core/SKILL.md`
+- Main game skill: `skills/pxh-expert/games-core/SKILL.md`

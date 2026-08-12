@@ -42,4 +42,4 @@ MarbleRacingGame
 ## References
 - Design: `game-design-h5-marble-racing.md`
 - 3D base: `game-h5-3d.md`
-- Test helper: `skills/games-testing/templates/three-test-helper.ts`
+- Test helper: `skills/pxh-qa/games-testing/templates/three-test-helper.ts`

@@ -3,7 +3,7 @@
 ## Tổng quan
 Skill phát triển game 3D HTML5 sử dụng **Three.js** (ưu tiên) hoặc Babylon.js. Phù hợp cho: FPS, third-person, racing, simulation 3D, open-world.
 
-> **Bước 0: Download assets** — Chạy script ở `skills/games-assets/SKILL.md` trước. Dùng GLB models từ Poly Pizza / Sketchfab / Quaternius, fallback procedural geometry nếu không có mạng.
+> **Bước 0: Download assets** — Chạy script ở `skills/pxh-expert/games-assets/SKILL.md` trước. Dùng GLB models từ Poly Pizza / Sketchfab / Quaternius, fallback procedural geometry nếu không có mạng.
 
 ## Setup Three.js
 
@@ -63,6 +63,6 @@ Xem: `templates/audio-reference.ts`
 Xem: `templates/build.sh`
 
 ## Tham khảo
-- Assets: `skills/games-assets/SKILL.md`
+- Assets: `skills/pxh-expert/games-assets/SKILL.md`
 - Design: `game-design-h5-3d.md`
-- Main game skill: `skills/games-core/SKILL.md`
+- Main game skill: `skills/pxh-expert/games-core/SKILL.md`

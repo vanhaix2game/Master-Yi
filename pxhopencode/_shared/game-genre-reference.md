@@ -11,4 +11,4 @@
 | FPS 3D | Three.js | games-3d | Raycast shoot, enemy AI | Draw calls > 200, LOD thiếu |
 | Racing 3D | Three.js | games-3d | Physics ball, spline track | CCD thiếu, camera clip |
 
-Xem chi tiết: `skills/games-2d/`, `skills/games-3d/`, `skills/games-isometric/`
+Xem chi tiết: `skills/pxh-expert/games-2d/`, `skills/pxh-expert/games-3d/`, `skills/pxh-expert/games-isometric/`

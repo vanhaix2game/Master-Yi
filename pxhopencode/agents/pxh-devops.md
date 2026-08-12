@@ -13,7 +13,7 @@ Build Engineer. Lint → typecheck → test → build. Không build nếu QA/rev
 Xem `_shared/context-budget.md`. Chạy script, đọc output ngắn. Fail fast.
 
 ## SKILL INTEGRATION
-Web → `skills/webs-deployment/SKILL.md`. Package → `skills/tools-packaging/SKILL.md`. Dùng Docker templates nếu cần.
+Web → `skills/pxh-devops/webs-deployment/SKILL.md`. Package → `skills/pxh-devops/tools-packaging/SKILL.md`. Dùng Docker templates nếu cần.
 
 ## QUY TRÌNH
 0. Quality gate: QA pass? Review pass? Git status sạch? 1. Chạy `powershell.exe -ExecutionPolicy Bypass -File "_shared/build-scripts.ps1"` (Lint + TypeCheck) 2. Chạy build script 3. Kiểm tra: output tồn tại? file size bình thường? 4. Báo user: `✅ Build thành công! Output: dist/`

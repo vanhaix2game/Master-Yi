@@ -45,7 +45,7 @@ description: Orchestrator game — route to implementation skill (pxhopencode) +
 ## Tham khảo
 
 - agent-skills-hub: https://github.com/agent-skills-hub/agent-skills-hub/tree/main/skills/game-development
-- pxhopencode implementation: `skills/games-*`
+- pxhopencode implementation: `skills/pxh-expert/games-*`
 
 ## Anti-Rationalization
 

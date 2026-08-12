@@ -35,7 +35,7 @@ new Phaser.Game({
 
 ## Testing
 `npx vitest run` | `npx vitest --coverage` (≥ 80%)
-Helper: `skills/games-testing/templates/phaser-test-helper.ts` — createHeadlessGame, advanceTime, simulatePointer
+Helper: `skills/pxh-qa/games-testing/templates/phaser-test-helper.ts` — createHeadlessGame, advanceTime, simulatePointer
 
 ## Mẫu chính (chống lag)
 - **Object pool**: Cho đạn, particle, enemy — dùng `Phaser.Group.maxSize`

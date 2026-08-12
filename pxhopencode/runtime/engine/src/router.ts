@@ -16,8 +16,8 @@ const INTENT_ROUTES: Record<string, RouteTarget> = {
   "ui-ux": { workflow: "workflows/web.workflow.md", initialPhase: "ui-ux", skills: ["ui-ux", "webs-styling"] },
   meeting: { workflow: "workflows/meeting.workflow.md", initialPhase: "meeting", skills: [] },
   release: { workflow: "workflows/release.workflow.md", initialPhase: "build", skills: ["tools-packaging"] },
-  compile: { workflow: "skills/prompt-compiler/SKILL.md", initialPhase: "analyze", skills: ["prompt-compiler"] },
-  preview: { workflow: "skills/games-preview/SKILL.md", initialPhase: "code", skills: ["games-preview"] },
+  compile: { workflow: "skills/pxh-pm/prompt-compiler/SKILL.md", initialPhase: "analyze", skills: ["prompt-compiler"] },
+  preview: { workflow: "skills/pxh-expert/games-preview/SKILL.md", initialPhase: "code", skills: ["games-preview"] },
 };
 
 export function route(type: RequestType): RouteTarget {

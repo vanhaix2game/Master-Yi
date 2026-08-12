@@ -73,11 +73,11 @@ Game có camera 3D?
 
 | Engine | Best for | Templates |
 |--------|----------|-----------|
-| Phaser 3 + Arcade | 2D platformer, shmup, RPG | skills/games-2d/templates/ |
-| Phaser 3 + Matter | Physics puzzle, destruction | skills/games-physics/templates/ |
-| Three.js | 3D FPS/TPS, racing, open world | skills/games-3d/templates/ |
-| Three.js + Cannon-es | Physics 3D, marble racing | skills/games-3d/ |
-| Phaser + Isometric | Strategy, city builder | skills/games-isometric/templates/ |
+| Phaser 3 + Arcade | 2D platformer, shmup, RPG | skills/pxh-expert/games-2d/templates/ |
+| Phaser 3 + Matter | Physics puzzle, destruction | skills/pxh-expert/games-physics/templates/ |
+| Three.js | 3D FPS/TPS, racing, open world | skills/pxh-expert/games-3d/templates/ |
+| Three.js + Cannon-es | Physics 3D, marble racing | skills/pxh-expert/games-3d/ |
+| Phaser + Isometric | Strategy, city builder | skills/pxh-expert/games-isometric/templates/ |
 
 ## General Anti-Patterns (mọi game)
 | Problem | Fix |

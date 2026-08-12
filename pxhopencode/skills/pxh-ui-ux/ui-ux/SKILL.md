@@ -30,8 +30,8 @@ pxhopencode có sẵn design system tại `_shared/design-system/`:
 - `game-tokens.css` — game HUD tokens (HP, score, combo, shield, glow)
 - `design-tokens.ts` — typed tokens cho JS/TS projects
 
-Web templates → `skills/webs-styling/templates/` (Tailwind config + design tokens + component patterns)
-Game templates → `skills/games-2d/templates/color-palettes.ts` (5 palettes: VIBRANT/PASTEL/DARK/NEON/RETRO)
+Web templates → `skills/pxh-ui-ux/webs-styling/templates/` (Tailwind config + design tokens + component patterns)
+Game templates → `skills/pxh-expert/games-2d/templates/color-palettes.ts` (5 palettes: VIBRANT/PASTEL/DARK/NEON/RETRO)
 
 Always reference these before generating new tokens to avoid duplication.
 

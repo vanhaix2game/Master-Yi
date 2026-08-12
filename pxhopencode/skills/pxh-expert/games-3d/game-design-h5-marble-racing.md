@@ -72,4 +72,4 @@ FPS: 60/30+ (desktop/mobile), Draw calls <100, Physics 60Hz, Ball <500 tris, Tra
 ## References
 - Implementation: `game-h5-3d-marble-racing.md`
 - 3D base: `game-h5-3d.md`
-- Testing: `skills/games-testing/SKILL.md`
+- Testing: `skills/pxh-qa/games-testing/SKILL.md`

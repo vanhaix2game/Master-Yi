@@ -63,4 +63,4 @@ Code xong → route qua `workflows/company.workflow.md` phase 7-11 (Test→Fix�
 - Quá 3 lần → báo user + snapshot state
 
 ### Security checklist (tích hợp trong phase review)
-Khi `pxh-review-code` chạy, load `skills/webs-security/SKILL.md` + `security-checklist.ts` để kiểm tra: auth, XSS, CSRF, SQLi, rate limit, URL bypass, secure headers, dependency audit. Một pass, không thêm phase.
+Khi `pxh-review-code` chạy, load `skills/pxh-expert/webs-security/SKILL.md` + `security-checklist.ts` để kiểm tra: auth, XSS, CSRF, SQLi, rate limit, URL bypass, secure headers, dependency audit. Một pass, không thêm phase.

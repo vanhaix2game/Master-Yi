@@ -34,7 +34,7 @@ document.getElementById("app")!.appendChild(renderer.domElement);
 
 ## Testing
 `npx vitest run` | `npx vitest --coverage` (≥ 80%)
-Helper: `skills/games-testing/templates/three-test-helper.ts` — createHeadlessRenderer, disposeScene, advanceFrames; check draw calls < 200
+Helper: `skills/pxh-qa/games-testing/templates/three-test-helper.ts` — createHeadlessRenderer, disposeScene, advanceFrames; check draw calls < 200
 
 ## Mẫu chính (chống lag)
 - **InstancedMesh**: Cho hàng ngàn object giống nhau (cây, đá, enemy)

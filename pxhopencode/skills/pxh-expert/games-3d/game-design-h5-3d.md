@@ -47,4 +47,4 @@ Xem: `templates/time-of-day.ts`
 
 ## Tham khảo
 - Implementation: `game-h5-3d.md`
-- Core: `skills/games-core/SKILL.md`
+- Core: `skills/pxh-expert/games-core/SKILL.md`

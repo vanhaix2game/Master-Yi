@@ -719,6 +719,15 @@
           "order": 1
         }
       ]
+    },
+    {
+      "id": "factory-1786500669162",
+      "name": "Nhân viên Excel",
+      "description": "tạo mã VBA, chạy lệnh, nghiên cứu chuyên sâu về excel",
+      "resume": "chuyên gia về Excel phát triển",
+      "employee_icon": "assistant_c",
+      "status": "ready",
+      "steps": []
     }
   ]
 }

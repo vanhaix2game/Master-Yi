@@ -85,4 +85,4 @@ Xem: `templates/pathfinding.ts`
 
 ### Tham khảo
 - Implementation: `game-h5-2.5d.md`
-- Main game skill: `skills/games-core/SKILL.md`
+- Main game skill: `skills/pxh-expert/games-core/SKILL.md`

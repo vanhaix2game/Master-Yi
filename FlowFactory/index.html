@@ -133,6 +133,25 @@ html,body{height:100%;min-height:0;overflow:hidden}body{padding:12px;background:
 .office-hud .oh-mission strong{display:block;font-size:11px;letter-spacing:.14em;color:#cfcfcf;margin-bottom:5px}
 .office-hud .oh-tips{text-align:right;color:#ddd}
 .office-mode #officeCanvas{image-rendering:pixelated;image-rendering:crisp-edges}
+.meeting-chat{position:absolute;top:70px;right:16px;bottom:16px;width:340px;display:flex;flex-direction:column;border:2px solid #e8e8e8;border-radius:12px;background:#fdfdfb;box-shadow:4px 4px 0 rgba(0,0,0,.18);z-index:3;overflow:hidden;font:13px/1.5 ui-sans-serif,system-ui,"Segoe UI",sans-serif}
+.meeting-chat[hidden]{display:none}
+.meeting-chat-head{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;background:#111827;color:#fff}
+.meeting-chat-head strong{font-size:12px;letter-spacing:.02em}
+.meeting-chat-head .icon-btn{color:#fff;background:transparent;border:0;font-size:18px;cursor:pointer}
+.meeting-chat-body{flex:1 1 auto;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:#f7f7f4}
+.meeting-chat-msg{max-width:86%;padding:8px 10px;border-radius:10px;font-size:12.5px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.meeting-chat-msg.me{background:#2563eb;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+.meeting-chat-msg.pm{background:#fff;color:#111827;border:1px solid #e2e2dd;align-self:flex-start;border-bottom-left-radius:3px}
+.meeting-chat-msg.sys{background:#fff4e0;color:#9a5b00;align-self:center;text-align:center;font-size:11.5px;border:1px solid #f2d49a}
+.meeting-chat-msg .who{display:block;font-size:10px;font-weight:700;opacity:.75;margin-bottom:2px}
+.meeting-chat-input{flex:0 0 auto;display:flex;gap:8px;padding:10px;background:#fff;border-top:1px solid #e4e4e0}
+.meeting-chat-input input{flex:1 1 auto;min-width:0;padding:8px 10px;border:1px solid #d4d4d0;border-radius:8px;font:inherit}
+.meeting-chat-input input:focus{outline:none;border-color:#2563eb}
+.meeting-chat-input .btn{padding:8px 14px;border:0;border-radius:8px;background:#2563eb;color:#fff;font-size:12px;font-weight:700;cursor:pointer}
+.meeting-chat-input .btn:disabled{opacity:.6;cursor:default}
+.meeting-chat-loading{font-size:11.5px;color:#6b7280;align-self:center;padding:4px 10px;background:#eee;border-radius:999px;animation:meetingBlink 1s infinite}
+@keyframes meetingBlink{50%{opacity:.4}}
+.meeting-hud-pm{color:#fbbf24}
 .workspace.output-mode{display:flex;flex-direction:column;overflow:hidden}.workspace.output-mode .flow-tab-panel[data-flow-panel="output"]{min-height:0;flex:1;display:flex}.workspace.output-mode .flow-tab-panel[data-flow-panel="output"]>.card{min-height:0;flex:1;display:flex;flex-direction:column;margin-bottom:0}.output-file-tabs{display:flex;flex:0 0 auto;gap:8px;margin:12px 0 0;padding:0 0 8px;overflow-x:auto}.output-file-tab{min-width:180px;max-width:280px;padding:11px;border:1px solid var(--line);border-radius:9px 9px 4px 4px;background:#fff;text-align:left;cursor:pointer}.output-file-tab.active{border-color:#2563eb;background:#eff6ff;color:#1d4ed8;box-shadow:inset 0 -3px 0 #2563eb}.output-file-tab strong,.output-file-tab span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.output-file-tab strong{font-size:12px}.output-file-tab span{margin-top:4px;color:var(--muted);font-size:10px}.output-viewer{min-height:0;flex:1;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:9px;background:#fff}.output-viewer-head{display:flex;flex:0 0 auto;align-items:flex-start;justify-content:space-between;gap:12px;padding:12px;border-bottom:1px solid var(--line)}.output-viewer-title strong{display:block;font-size:13px}.output-viewer-path{margin-top:5px;color:var(--muted);word-break:break-all;font:10px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}.output-viewer-actions{display:flex;flex:0 0 auto;gap:5px}.output-preview-content{min-height:0;max-height:none;flex:1;margin:0;padding:14px;overflow:auto;background:#16181d;color:#e5e7eb;white-space:pre-wrap;word-break:break-word;font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace}.markdown-preview{min-height:0;max-height:none;flex:1;padding:18px;overflow:auto;background:#fff;color:var(--text);font-size:13px;line-height:1.7}.markdown-preview h1,.markdown-preview h2,.markdown-preview h3{margin:1.2em 0 .45em;line-height:1.3}.markdown-preview h1{font-size:24px}.markdown-preview h2{font-size:19px;border-bottom:1px solid var(--line);padding-bottom:5px}.markdown-preview h3{font-size:16px}.markdown-preview p{margin:.65em 0}.markdown-preview ul,.markdown-preview ol{padding-left:24px}.markdown-preview blockquote{margin:12px 0;padding:8px 12px;border-left:4px solid #93c5fd;background:#eff6ff;color:#475569}.markdown-preview pre{padding:12px;border-radius:8px;overflow:auto;background:#16181d;color:#e5e7eb}.markdown-preview code{padding:2px 5px;border-radius:4px;background:#eef2f7;font:12px ui-monospace,SFMono-Regular,Menlo,monospace}.markdown-preview pre code{padding:0;background:transparent}.markdown-preview a{color:#2563eb}.markdown-table-wrap{margin:14px 0;overflow-x:auto}.markdown-preview table{width:100%;border-collapse:collapse;background:#fff;font-size:12px}.markdown-preview th,.markdown-preview td{padding:9px 11px;border:1px solid #d8dee8;text-align:left;vertical-align:top}.markdown-preview th{background:#eff6ff;color:#1e3a8a;font-weight:800}.markdown-preview tbody tr:nth-child(even){background:#f8fafc}.json-tree{min-height:0;max-height:none;flex:1;padding:14px;overflow:auto;background:#16181d;color:#e5e7eb;font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace}.json-tree details{margin-left:16px}.json-tree>details{margin-left:0}.json-tree summary{cursor:pointer;color:#93c5fd}.json-leaf{margin-left:32px}.json-tree>.json-leaf{margin-left:0}.json-key{color:#fca5a5}.json-string{color:#86efac}.json-number{color:#fcd34d}.json-boolean{color:#c4b5fd}.json-null{color:#94a3b8}.media-launch{padding:40px 24px;text-align:center}.media-launch .btn{font-size:14px;padding:12px 20px}.output-preview-empty{min-height:0;flex:1;padding:40px 24px;color:var(--muted);text-align:center;font-size:12px}@media(max-width:560px){.right-head{align-items:flex-start;flex-direction:column}.flow-tabs{align-self:stretch}.flow-tab{flex:1}.output-viewer-head{flex-direction:column}.output-viewer-actions{align-self:flex-end}}</style>
 <style>#licenseDialog{width:min(760px,calc(100vw - 28px))}</style>
 <style>
@@ -196,7 +215,7 @@ html[data-theme="dark"] .generic-head .ai-flow-btn,html[data-theme="dark"] .gene
 <div class="app">
 <header class="topbar">
   <div class="brand"><a class="brand-home" href="https://flowfactory.xtoolbot.com/" target="_blank" rel="noopener noreferrer" aria-label="Mở trang chủ FlowFactory trong tab mới"><img class="brand-logo" src="factory-flow-header-logo.png" alt="Factory Flow Logo" /></a><div class="brand-copy"><h1>Flow Factory</h1><p>Flow Factory</p></div></div>
-  <div class="actions"><div class="view-toggle" id="viewToggle" role="group" aria-label="Chuyển chế độ xem"><button type="button" class="view-btn active" id="viewConsoleBtn" data-view="console"><span class="ff-icon" data-lucide="layout-dashboard"></span>Bàn làm việc</button><button type="button" class="view-btn" id="viewOfficeBtn" data-view="office"><span class="ff-icon" data-lucide="building-2"></span>Nhân viên PXH</button></div><button class="live-pill" id="agentHeaderStatus" type="button" title="Mở cài đặt kết nối Agent"><span class="live-dot"></span><span id="agentHeaderText">Agent Đang đọc trạng thái</span></button><button class="btn secondary" id="licenseBtn"><span class="ff-icon" data-lucide="key-round"></span>Cấp phép</button><button class="btn secondary" id="settingsBtn"><span class="ff-icon" data-lucide="settings-2"></span>Cài đặt</button><button class="btn" id="factoryStoreBtn"><span class="ff-icon" data-lucide="briefcase-business"></span>Chợ nhân lực</button></div>
+  <div class="actions"><div class="view-toggle" id="viewToggle" role="group" aria-label="Chuyển chế độ xem"><button type="button" class="view-btn active" id="viewConsoleBtn" data-view="console"><span class="ff-icon" data-lucide="layout-dashboard"></span>Bàn làm việc</button><button type="button" class="view-btn" id="viewOfficeBtn" data-view="office"><span class="ff-icon" data-lucide="building-2"></span>Nhân viên PXH</button><button type="button" class="view-btn" id="viewMeetingBtn" data-view="meeting"><span class="ff-icon" data-lucide="users-round"></span>Phòng họp Điều phối</button></div><button class="live-pill" id="agentHeaderStatus" type="button" title="Mở cài đặt kết nối Agent"><span class="live-dot"></span><span id="agentHeaderText">Agent Đang đọc trạng thái</span></button><button class="btn secondary" id="licenseBtn"><span class="ff-icon" data-lucide="key-round"></span>Cấp phép</button><button class="btn secondary" id="settingsBtn"><span class="ff-icon" data-lucide="settings-2"></span>Cài đặt</button><button class="btn" id="factoryStoreBtn"><span class="ff-icon" data-lucide="briefcase-business"></span>Chợ nhân lực</button></div>
 </header>
 <main class="layout">
   <div class="column-resizer" data-column="factory" role="separator" aria-label="Điều chỉnh độ rộng workflow factory" aria-orientation="vertical"></div>
@@ -224,7 +243,7 @@ html[data-theme="dark"] .generic-head .ai-flow-btn,html[data-theme="dark"] .gene
   </aside>
   <section class="panel right hidden" id="genericFactoryMain">
     <div class="right-head"><div><h2 id="genericMainTitle">Thẻ quy trình</h2><p id="genericMainSubtitle">Bấm+Thêm quy trình đầu tiên.</p></div><div class="flow-tabs" id="flowTabs" role="tablist" hidden><button class="flow-tab active" type="button" role="tab" aria-selected="true" data-flow-tab="settings">Nhập</button><button class="flow-tab" type="button" role="tab" aria-selected="false" data-flow-tab="output">Xuất</button></div></div>
-    <div class="workspace" id="genericWorkspace"></div><div class="workspace office-mode" id="officeWorkspace" hidden style="background:transparent"><div class="pxh-team-panel" id="pxhTeamPanel"></div><canvas id="officeCanvas" width="1672" height="941" style="width:100%;height:100%;object-fit:fill;image-rendering:pixelated;image-rendering:crisp-edges"></canvas><div class="office-hud" id="officeHud"></div></div>
+    <div class="workspace" id="genericWorkspace"></div><div class="workspace office-mode" id="officeWorkspace" hidden style="background:transparent"><div class="pxh-team-panel" id="pxhTeamPanel"></div><canvas id="officeCanvas" width="1672" height="941" style="width:100%;height:100%;object-fit:fill;image-rendering:pixelated;image-rendering:crisp-edges"></canvas><div class="office-hud" id="officeHud"></div></div><div class="workspace office-mode" id="meetingWorkspace" hidden style="background:transparent"><canvas id="meetingCanvas" width="1672" height="941" style="width:100%;height:100%;object-fit:fill;image-rendering:pixelated;image-rendering:crisp-edges"></canvas><div class="office-hud" id="meetingHud"></div><div class="meeting-chat" id="meetingChatPanel" hidden><div class="meeting-chat-head"><strong>💬 Chat với Bạn (PM Điều phối)</strong><button type="button" class="icon-btn" id="meetingChatClose" aria-label="Đóng chat">×</button></div><div class="meeting-chat-body" id="meetingChatBody"></div><div class="meeting-chat-input"><input id="meetingChatInput" placeholder="Nhắn cho PM điều phối…" autocomplete="off" /><button type="button" class="btn" id="meetingChatSend">Gửi</button></div></div></div>
   </section>
 </main>
 <dialog class="builder-dialog" id="factoryDialog">
@@ -266,6 +285,16 @@ html[data-theme="dark"] .generic-head .ai-flow-btn,html[data-theme="dark"] .gene
     <div class="notice">Kết quả sẽ được lưu trong thư mục outputs của nhân viên (result.md / result.json / opencode_raw.log).</div>
   </div>
   <div class="builder-footer"><button type="button" class="btn secondary" data-close-dialog="pxhAssignDialog">Hủy</button><button type="button" class="btn" id="pxhAssignSubmitBtn">Giao việc</button></div>
+</dialog>
+<dialog class="builder-dialog" id="pxhBlockerDialog">
+  <div class="settings-head"><div><h2 id="pxhBlockerTitle">Báo vướng mắc cho PM</h2><p id="pxhBlockerStep">Chọn loại vướng mắc</p></div><button class="icon-btn" data-close-dialog="pxhBlockerDialog" aria-label="Đóng">×</button></div>
+  <div class="builder-body">
+    <div class="field"><label>Nhân viên gặp vướng mắc</label><input id="pxhBlockerEmployee" type="text" readonly /></div>
+    <div class="field"><label>Loại vướng mắc</label><select id="pxhBlockerType"><option value="env">Môi trường / công cụ chưa sẵn sàng (VD: MCP AutoCAD chưa mở)</option><option value="blocked">Cần thông tin / quyết định từ PM</option><option value="needs_help">Cần hỗ trợ kỹ thuật từ nhân viên khác</option><option value="needs_split">Dự án quá lớn — đề nghị phân chia cho nhiều người</option><option value="other">Khác</option></select></div>
+    <div class="field"><label>Mô tả chi tiết vướng mắc</label><textarea id="pxhBlockerDesc" maxlength="2000" style="min-height:110px" placeholder="VD: Cần mở MCP AutoCAD để tôi vẽ bản vẽ kết cấu, nhưng hiện chưa kết nối được.…"></textarea></div>
+    <div class="notice" id="pxhBlockerHint">PM sẽ tiếp nhận, kiểm tra nhân viên đã hoàn thành chưa, rồi điều hướng tiếp tục hoặc phân công lại cho nhân viên khác.</div>
+  </div>
+  <div class="builder-footer"><button type="button" class="btn secondary" data-close-dialog="pxhBlockerDialog">Hủy</button><button type="button" class="btn" id="pxhBlockerSubmitBtn">Báo PM tiếp nhận</button></div>
 </dialog>
 <datalist id="ff7OutputPathOptions"></datalist>
 <dialog id="flowDialog" class="builder-dialog ff7-dialog">
@@ -899,13 +928,14 @@ html:not([data-theme="dark"]) .flow-tab.active::after{left:50%;bottom:4px;width:
     'briefcase-business':'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/>',
     'bot':'<rect x="4" y="7" width="16" height="13" rx="3"/><path d="M12 3v4M8 12h.01M16 12h.01M9 16h6"/><circle cx="12" cy="3" r="1"/>',
     'plus':'<path d="M12 5v14M5 12h14"/>',
-    'play':'<path d="m8 5 11 7-11 7V5Z"/>'
+    'play':'<path d="m8 5 11 7-11 7V5Z"/>',
+    'users-round':'<circle cx="9" cy="8" r="3.4"/><path d="M15 5.6a3 3 0 0 1 0 4.8"/><path d="M17.5 13.9A4.6 4.6 0 0 1 20 18"/><path d="M3 18a5.5 5.5 0 0 1 9-4.2"/><path d="M14 19.4A3 3 0 0 1 12 20"/>'
   };
   document.querySelectorAll('[data-lucide]').forEach(el => { const path = paths[el.dataset.lucide]; if(path) el.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`; });
 })();
 </script>
 <script>
-let state=JSON.parse(localStorage.getItem('automoneyConsoleV4')||'{}');state.genericValues||={};state.agentTasks||={};state.factoryRuns||={};state.scheduleSeenAt||={};state.activeFlowTab=['settings','output'].includes(state.activeFlowTab)?state.activeFlowTab:'settings';
+let state=JSON.parse(localStorage.getItem('automoneyConsoleV4')||'{}');state.genericValues||={};state.agentTasks||={};state.factoryRuns||={};state.scheduleSeenAt||={};state.pxhBlockers||={};state.pxhChat||={messages:[]};state.activeFlowTab=['settings','output'].includes(state.activeFlowTab)?state.activeFlowTab:'settings';
 let liveConfig={content_root:'~/.flowfactory/data/outputs',version:'',managed_install:false};let appConfig={content_root:'~/.flowfactory/data/outputs'};let agentConfig={mode:'disabled',name:'Agent',connected:false};let licenseState={licensed:false,plan:'free'};
 let workflowConfig={workflows:[]};let workflowConfigLimited=false,settingsFileLimited=false; let activeFactoryId=state.activeFactoryId||'factory-1784101947724'; let activeGenericStepId=null;
 const AI_FLOW_CHAT_STORAGE_KEY='flowFactoryAiChatsV1';
@@ -1140,15 +1170,20 @@ $('#saveSettingsJson').onclick=saveSettingsFile;
 bindSettingsJsonDrop();
 $('#settingsDialog').addEventListener('cancel',e=>{if(settingsDirty){e.preventDefault();closeSettings()}});
 
-$('#viewConsoleBtn').onclick=()=>setOfficeMode(false);
+$('#viewConsoleBtn').onclick=()=>{setOfficeMode(false);if(meetingMode)setMeetingMode(false)};
 $('#viewOfficeBtn').onclick=()=>setOfficeMode(true);
+$('#viewMeetingBtn').onclick=()=>setMeetingMode(true);
 const pxhAssignDialog=document.getElementById('pxhAssignDialog');
 if(pxhAssignDialog){document.getElementById('pxhAssignSubmitBtn').onclick=submitPxhAssign;pxhAssignDialog.addEventListener('close',()=>{pxhAssignFactory=null});pxhAssignDialog.addEventListener('click',e=>{if(e.target===$('#pxhAssignDialog')||e.target.closest('[data-close-dialog="pxhAssignDialog"]'))pxhAssignDialog.close()})}
+const pxhBlockerDialog=document.getElementById('pxhBlockerDialog');
+if(pxhBlockerDialog){document.getElementById('pxhBlockerSubmitBtn').onclick=submitPxhBlocker;pxhBlockerDialog.addEventListener('close',()=>{pxhBlockerFactory=null});pxhBlockerDialog.addEventListener('click',e=>{if(e.target===$('#pxhBlockerDialog')||e.target.closest('[data-close-dialog="pxhBlockerDialog"]'))pxhBlockerDialog.close()})}
+const meetingChatPanel=document.getElementById('meetingChatPanel');
+if(meetingChatPanel){document.getElementById('meetingChatSend').onclick=pmChatSend;document.getElementById('meetingChatClose').onclick=()=>{meetingChatPanel.hidden=true};document.getElementById('meetingChatInput').addEventListener('keydown',e=>{if(e.key==='Enter')pmChatSend()})}
 document.head.appendChild(Object.assign(document.createElement('style'),{textContent:'#factoryNav,#genericFlowList{scrollbar-width:thin;scrollbar-color:transparent transparent;transition:scrollbar-color .3s}#factoryNav.nav-scroll-visible,#genericFlowList.nav-scroll-visible{scrollbar-color:rgba(17,24,39,.28) transparent}#factoryNav::-webkit-scrollbar,#genericFlowList::-webkit-scrollbar{width:6px;height:6px}#factoryNav::-webkit-scrollbar-track,#genericFlowList::-webkit-scrollbar-track{background:transparent}#factoryNav::-webkit-scrollbar-thumb,#genericFlowList::-webkit-scrollbar-thumb{background:transparent;border-radius:3px;transition:background .3s}#factoryNav.nav-scroll-visible::-webkit-scrollbar-thumb,#genericFlowList.nav-scroll-visible::-webkit-scrollbar-thumb,#factoryNav::-webkit-scrollbar-thumb:hover,#genericFlowList::-webkit-scrollbar-thumb:hover{background:rgba(17,24,39,.28)}'}));
 const navScrollTargets=[document.getElementById('factoryNav'),document.getElementById('genericFlowList')].filter(Boolean);let navScrollHideTimer=0;function showNavScroll(){navScrollTargets.forEach(el=>el.classList.add('nav-scroll-visible'));clearTimeout(navScrollHideTimer);navScrollHideTimer=setTimeout(()=>navScrollTargets.forEach(el=>el.classList.remove('nav-scroll-visible')),2000)}navScrollTargets.forEach(el=>{el.addEventListener('scroll',showNavScroll,{passive:true});el.addEventListener('mouseenter',showNavScroll);el.addEventListener('mouseleave',()=>{clearTimeout(navScrollHideTimer);navScrollHideTimer=setTimeout(()=>navScrollTargets.forEach(x=>x.classList.remove('nav-scroll-visible')),2000)})});
-let officeResizeTimer=0;window.addEventListener('resize',()=>{if(!officeMode)return;clearTimeout(officeResizeTimer);officeResizeTimer=setTimeout(officeFitToPanel,150)});
+let officeResizeTimer=0;window.addEventListener('resize',()=>{if(!officeMode&&!meetingMode)return;clearTimeout(officeResizeTimer);officeResizeTimer=setTimeout(()=>{if(officeMode)officeFitToPanel();else if(meetingMode)meetingFitToPanel()},150)});
 $('#factoryStoreBtn').onclick=openFactoryStore;
-initLive().then(async()=>{await loadAppSettings();renderFactoryVersion({current_version:liveConfig.version});await loadWorkflowConfig();await refreshFactorySchedules();refreshLicenseInBackground();checkSidebarUpdate();if(state.officeMode&&activeFactoryId)setOfficeMode(true)});
+initLive().then(async()=>{await loadAppSettings();renderFactoryVersion({current_version:liveConfig.version});await loadWorkflowConfig();await refreshFactorySchedules();refreshLicenseInBackground();checkSidebarUpdate();officeInit();meetingInit();if(state.officeMode&&activeFactoryId)setOfficeMode(true);else if(state.meetingMode)setMeetingMode(true)});
 setInterval(monitorServiceHealth,5000);
 setInterval(()=>{if(workflowConfig.workflows.length)refreshFactorySchedules()},15000);
 function hideFactoryPanels(){
@@ -1303,7 +1338,7 @@ async function deleteFactory(factoryId){
  }catch(e){workflowConfig=JSON.parse(backup);renderFactoryNav();toast(e.message||'Xóa nhà máy thất bại',true)}
 }
 function switchFactory(wf,userInitiated=false){
- if(userInitiated&&officeMode)setOfficeMode(false);
+ if(userInitiated&&(officeMode||meetingMode)){if(officeMode)setOfficeMode(false);else setMeetingMode(false)}
  activeFactoryId=wf;activeGenericStepId=null;if(userInitiated){state.activeFactoryId=wf;const schedule=scheduleCache[wf];if(schedule?.last_run_at){state.scheduleSeenAt[wf]=schedule.last_run_at;save()}}renderFactoryNav();hideFactoryPanels();
  document.getElementById('genericFactorySidebar').classList.remove('hidden');document.getElementById('genericFactoryMain').classList.remove('hidden');renderGenericFactory();
 }
@@ -1534,6 +1569,297 @@ const office = {
   statusClock: 0,
 };
 
+let meetingMode = false;
+const meeting = {
+  running: false,
+  rafId: 0,
+  canvas: null, ctx: null,
+  furniture: {},
+  workers: [],
+  workerSprites: {},
+  spriteCanvas: {},
+  seats: [],
+  statusClock: 0,
+};
+
+function meetingWorkerStatus(factory) {
+  const schedule = scheduleCache[factory.id] || {};
+  const blocker = state.pxhBlockers[factory.id];
+  if (blocker && blocker.status === 'open') return 'blocked';
+  if (['queued','running'].includes(schedule.status) || schedule.running) return 'work';
+  const finished = ['completed','failed','interrupted'].includes(schedule.last_status);
+  const unread = finished && Number(schedule.last_run_at || 0) > Number(state.scheduleSeenAt[factory.id] || 0);
+  if (unread) return 'meeting';
+  return 'idle';
+}
+
+function meetingInit() {
+  const cv = document.getElementById('meetingCanvas');
+  if (!cv) return;
+  meeting.canvas = cv;
+  meeting.ctx = cv.getContext('2d');
+  meeting.ctx.imageSmoothingEnabled = false;
+  const sources = {
+    meetingTable: 'assets/office/furniture/meeting-table.png',
+    chairFront: 'assets/office/furniture/chair-front.png',
+    computerDesk: 'assets/office/furniture/computer-desk-back.png',
+    plant: 'assets/office/furniture/plant.png',
+  };
+  Object.entries(sources).forEach(([key, src]) => {
+    const img = new Image();
+    img.src = src;
+    meeting.furniture[key] = img;
+  });
+  ['a','b','c','d','e','g','h','i'].forEach(k => {
+    const img = new Image();
+    img.src = `assets/employees/assistant-${k}.png`;
+    meeting.workerSprites['assistant_' + k] = img;
+  });
+  meeting.canvas.addEventListener('click', meetingCanvasClick);
+  meeting.canvas.addEventListener('mousemove', meetingCanvasMove);
+  meeting.running = true;
+  meeting.last = performance.now();
+  meeting.rafId = requestAnimationFrame(meetingLoop);
+}
+
+function meetingLayout() {
+  const factories = workflowConfig.workflows || [];
+  const W = meeting.canvas.width, H = meeting.canvas.height;
+  const tableX = W / 2, tableY = H / 2;
+  meeting.tableX = tableX; meeting.tableY = tableY;
+  const xs = [W*0.30, W*0.38, W*0.50, W*0.62, W*0.70];
+  const seats = [];
+  xs.forEach((x, i) => seats.push({x: Math.round(x), y: Math.round(tableY - H*0.20)}));
+  xs.forEach((x, i) => seats.push({x: Math.round(x), y: Math.round(tableY + H*0.20)}));
+  meeting.seats = seats;
+  const tierRank = {T1:0, T2:1, T3:2, T4:3, T5:4};
+  const sorted = factories.map((f,i)=>({f, i})).sort((a,b)=>{
+    const ta = tierRank[a.f.pxh_tier] ?? 9, tb = tierRank[b.f.pxh_tier] ?? 9;
+    if (ta !== tb) return ta - tb;
+    return a.i - b.i;
+  });
+  meeting.pm = null;
+  meeting.workers = sorted.filter(({f}) => String(f.pxh_agent||'') !== 'pxh-pm').map(({f, i}, seatIndex) => {
+    const seat = seats[seatIndex % seats.length] || seats[0];
+    const status = meetingWorkerStatus(f);
+    return {
+      id: f.id, name: f.name, icon: normalizeEmployeeIcon(f.employee_icon),
+      x: seat.x, y: seat.y, seatIndex, status,
+      bob: Math.random()*10, phase: (seatIndex % 2) * Math.PI,
+    };
+  });
+  const pmFactory = factories.find(f => String(f.pxh_agent||'') === 'pxh-pm');
+  if (pmFactory) {
+    const seat = {x: Math.round(W/2), y: Math.round(tableY - H*0.36)};
+    meeting.pm = {
+      id: pmFactory.id, name: 'Bạn · PM Điều phối', icon: normalizeEmployeeIcon(pmFactory.employee_icon),
+      x: seat.x, y: seat.y, seatIndex: -1, status: meetingWorkerStatus(pmFactory),
+      bob: Math.random()*10, phase: 0,
+    };
+  }
+}
+
+function meetingCanvasPoint(e) {
+  const rect = meeting.canvas.getBoundingClientRect();
+  return {
+    x: (e.clientX - rect.left) / rect.width * meeting.canvas.width,
+    y: (e.clientY - rect.top) / rect.height * meeting.canvas.height,
+  };
+}
+
+function meetingHitWorker(mx, my) {
+  if (meeting.pm && mx >= meeting.pm.x - 75 && mx <= meeting.pm.x + 75 && my >= meeting.pm.y - 115 && my <= meeting.pm.y + 15) return meeting.pm;
+  for (const w of meeting.workers) {
+    if (mx >= w.x - 75 && mx <= w.x + 75 && my >= w.y - 115 && my <= w.y + 15) return w;
+  }
+  return null;
+}
+
+function meetingCanvasMove(e) {
+  if (!meetingMode || !meeting.running) return;
+  const point = meetingCanvasPoint(e);
+  meeting.canvas.style.cursor = meetingHitWorker(point.x, point.y) ? 'pointer' : 'default';
+}
+
+function meetingCanvasClick(e) {
+  if (!meetingMode) return;
+  const point = meetingCanvasPoint(e);
+  const w = meetingHitWorker(point.x, point.y);
+  if (!w) return;
+  if (w === meeting.pm) { openPmChat(); return; }
+  const factory = workflowConfig.workflows.find(x => String(x.id) === String(w.id));
+  if (!factory) return;
+  const blocker = state.pxhBlockers[factory.id];
+  if (blocker && blocker.status === 'open') { openPxhBlockerView(factory); return; }
+  openPxhAssign(factory);
+}
+
+function meetingUpdate(dt) {
+  meeting.statusClock += dt;
+  if (meeting.statusClock > 1.5) {
+    meeting.statusClock = 0;
+    const factories = workflowConfig.workflows || [];
+    const count = (meeting.workers ? meeting.workers.length : 0) + (meeting.pm ? 1 : 0);
+    if (factories.length !== count) {
+      meetingLayout();
+    } else {
+      meeting.workers.forEach(w => {
+        const factory = factories.find(x => String(x.id) === String(w.id));
+        if (!factory) return;
+        w.status = meetingWorkerStatus(factory);
+      });
+      if (meeting.pm) {
+        const pmFactory = factories.find(x => String(x.pxh_agent||'') === 'pxh-pm');
+        if (pmFactory) meeting.pm.status = meetingWorkerStatus(pmFactory);
+      }
+    }
+  }
+  if (meeting.workers) meeting.workers.forEach(w => { w.bob += dt; });
+  if (meeting.pm) meeting.pm.bob += dt;
+}
+
+function meetingDrawTable(ctx, W, H) {
+  const S = 0.7;
+  const img = meeting.furniture.meetingTable;
+  const tx = meeting.tableX, ty = meeting.tableY;
+  const tw = Math.round(980 * S), th = Math.round(340 * S);
+  if (img && img.complete && img.naturalWidth) {
+    ctx.drawImage(img, tx - tw/2, ty - th/2, tw, th);
+  } else {
+    ctx.fillStyle = '#c9a06c';
+    ctx.fillRect(tx - tw/2, ty - th/2, tw, th);
+  }
+}
+
+function meetingDrawComputer(ctx, x, y) {
+  const img = meeting.furniture.computerDesk;
+  const w = Math.round(170 * 0.7), h = Math.round(134 * 0.7);
+  if (img && img.complete && img.naturalWidth) {
+    ctx.drawImage(img, x - w/2, y - h/2, w, h);
+  } else {
+    ctx.fillStyle = '#8b8f98';
+    ctx.fillRect(x - w/2, y - h/2, w, h);
+  }
+}
+
+function meetingDrawWorker(w, time) {
+  const ctx = meeting.ctx;
+  const isPm = w === meeting.pm;
+  const key = Object.prototype.hasOwnProperty.call(meeting.workerSprites, w.icon) ? w.icon : 'assistant_a';
+  const img = meeting.workerSprites[key];
+  const sprite = meeting.spriteCanvas[key] || (img && img.complete && img.naturalWidth ? (meeting.spriteCanvas[key] = officeTrimSprite(officeKeyedSprite(img))) : null) || img;
+  const bob = Math.sin(w.bob * 2) * 2;
+  const breath = 1 + 0.03 * Math.sin(time / 700 + (w.phase || 0));
+  const size = 92;
+  ctx.save();
+  ctx.globalAlpha = .25; ctx.fillStyle = '#000';
+  ctx.beginPath(); ctx.ellipse(w.x, w.y + 2, 15, 5.5, 0, 0, Math.PI*2); ctx.fill();
+  ctx.globalAlpha = 1;
+  if (isPm) {
+    ctx.fillStyle = '#fbbf24';
+    ctx.beginPath(); ctx.arc(w.x, w.y - 42, 36, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#111827'; ctx.lineWidth = 3; ctx.stroke();
+    ctx.fillStyle = '#111827'; ctx.font = 'bold 26px ui-sans-serif,system-ui'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('🧑‍💼', w.x, w.y - 42);
+  } else if (sprite) {
+    const sw = sprite.naturalWidth || sprite.width || size;
+    const sh = sprite.naturalHeight || sprite.height || size;
+    const drawW = size * sw / sh * breath;
+    const drawH = size * breath;
+    ctx.drawImage(sprite, w.x - drawW/2, w.y - drawH + bob, drawW, drawH);
+  } else {
+    ctx.fillStyle = '#f5f5f5'; ctx.fillRect(w.x-14, w.y-36, 28, 40);
+  }
+  const statusColors = {work:'#16834a', meeting:'#b7791f', idle:'#6b7280', blocked:'#dc2626'};
+  const statusText = {work:'Đang làm việc', meeting:'Vừa hoàn thành', idle:'Sẵn sàng', blocked:'Có vướng mắc'};
+  ctx.font = 'bold 11px monospace'; ctx.textAlign = 'center';
+  const tw = ctx.measureText(w.name).width + 14;
+  const labelY = w.y - size - 18;
+  ctx.fillStyle = statusColors[w.status] || '#111827';
+  ctx.fillRect(w.x - tw/2, labelY, tw, 18);
+  ctx.fillStyle = '#fff'; ctx.fillText(w.name, w.x, labelY + 13);
+  const sw2 = ctx.measureText(statusText[w.status]).width + 12;
+  const statusY = w.y + 24;
+  ctx.fillStyle = '#111827';
+  ctx.fillRect(w.x - sw2/2, statusY, sw2, 16);
+  ctx.fillStyle = statusColors[w.status];
+  ctx.fillText(statusText[w.status], w.x, statusY + 12);
+  if (isPm) {
+    ctx.font = 'bold 10px ui-sans-serif,system-ui';
+    const tw2 = ctx.measureText('Bấm để chat').width + 12;
+    ctx.fillStyle = '#111827'; ctx.fillRect(w.x - tw2/2, w.y + 46, tw2, 16);
+    ctx.fillStyle = '#fbbf24'; ctx.fillText('Bấm để chat', w.x, w.y + 58);
+  }
+  if (w.status === 'blocked') {
+    const bx = w.x + size/2 + 6, by = w.y - size;
+    ctx.fillStyle = '#dc2626';
+    ctx.beginPath(); ctx.arc(bx, by, 16, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 13px monospace'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('⚠', bx, by + 1);
+  }
+  ctx.restore();
+}
+
+function meetingDrawHud() {
+  const el = document.getElementById('meetingHud');
+  if (!el) return;
+  let work = 0, meeting2 = 0, idle = 0, blocked = 0;
+  const all = meeting.workers.concat(meeting.pm ? [meeting.pm] : []);
+  all.forEach(w => {
+    if (w.status === 'work') work++;
+    else if (w.status === 'meeting') meeting2++;
+    else if (w.status === 'blocked') blocked++;
+    else idle++;
+  });
+  const blockerNote = blocked > 0 ? ` · <span class="meeting-hud-pm">⚠ Vướng mắc ${blocked}</span>` : '';
+  el.innerHTML = `<div class="oh-panel oh-mission"><strong>Phòng họp Điều phối</strong>Đang làm việc ${work} · Vừa hoàn thành ${meeting2} · Sẵn sàng ${idle}${blockerNote}</div><div class="oh-panel oh-tips">Nhấn vào nhân viên để giao việc · Nhấn vào bạn (PM) để chat · ${all.length} thành viên</div>`;
+}
+
+function meetingRender(time) {
+  const ctx = meeting.ctx, W = meeting.canvas.width, H = meeting.canvas.height;
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#e8e2d6';
+  ctx.fillRect(0, 0, W, H);
+  meetingDrawTable(ctx, W, H);
+  const drawables = [];
+  meeting.workers.forEach(w => {
+    const row = w.seatIndex < 5;
+    drawables.push({depth: w.y + (row ? -6 : 6), draw: () => meetingDrawWorker(w, time)});
+    const computerY = row ? w.y + Math.round(120*0.7) : w.y - Math.round(120*0.7);
+    drawables.push({depth: w.y, draw: () => meetingDrawComputer(ctx, w.x + Math.round(86*0.7), computerY)});
+  });
+  if (meeting.pm) drawables.push({depth: meeting.pm.y - 6, draw: () => meetingDrawWorker(meeting.pm, time)});
+  drawables.sort((a,b) => a.depth - b.depth).forEach(d => d.draw());
+  meetingDrawHud();
+}
+
+function meetingLoop(now) {
+  meeting.rafId = 0;
+  if (!meetingMode || !meeting.running) return;
+  const dt = Math.min(.033, (now - (meeting.last||now))/1000);
+  meeting.last = now;
+  meetingUpdate(dt);
+  meetingRender(now);
+  meeting.rafId = requestAnimationFrame(meetingLoop);
+}
+
+function meetingFitToPanel() {
+  if (!meetingMode || !meeting.canvas) return;
+  const mw = document.getElementById('meetingWorkspace');
+  if (!mw) return;
+  const rect = mw.getBoundingClientRect();
+  if (rect.width > 0 && rect.height > 0) {
+    meeting.canvas.width = 1672;
+    meeting.canvas.height = Math.max(941, Math.round(1672 * rect.height / rect.width));
+  }
+  meetingLayout();
+  if (!meeting.rafId) {
+    meeting.last = performance.now();
+    meeting.rafId = requestAnimationFrame(meetingLoop);
+  }
+}
+
 function officeInit() {
   const cv = document.getElementById('officeCanvas');
   if (!cv) return;
@@ -1655,6 +1981,147 @@ async function submitPxhAssign(){
     document.getElementById('hermesRunStatus').textContent = 'Gửi yêu cầu thất bại: ' + (error.message||error);
     toast(error.message || 'Không gửi được yêu cầu', true);
   }
+}
+
+let pxhBlockerFactory = null;
+function openPxhBlockerView(factory){
+  pxhBlockerFactory = factory;
+  const dlg = document.getElementById('pxhBlockerDialog');
+  if(!dlg) return;
+  const blocker = state.pxhBlockers[factory.id];
+  document.getElementById('pxhBlockerTitle').textContent = 'Vướng mắc của ' + factory.name;
+  document.getElementById('pxhBlockerStep').textContent = 'Bạn (PM) đang tiếp nhận vướng mắc này';
+  document.getElementById('pxhBlockerEmployee').value = factory.name;
+  document.getElementById('pxhBlockerDesc').value = blocker && blocker.desc ? blocker.desc : '';
+  document.getElementById('pxhBlockerType').value = blocker && blocker.type ? blocker.type : 'blocked';
+  const typeText = blocker ? ({env:'Môi trường / công cụ chưa sẵn sàng',blocked:'Cần thông tin / quyết định từ PM',needs_help:'Cần hỗ trợ kỹ thuật từ nhân viên khác',needs_split:'Dự án quá lớn — đề nghị phân chia',other:'Khác'})[blocker.type] || '' : '';
+  const complete = scheduleCache[factory.id] && ['completed'].includes(scheduleCache[factory.id].last_status);
+  document.getElementById('pxhBlockerHint').innerHTML = blocker
+    ? (complete
+      ? 'Nhân viên này đã <strong>hoàn thành</strong> công việc (dù có vướng mắc). Bạn có thể đánh dấu Đã giải quyết để nhân viên tiếp tục.'
+      : 'Kiểm tra trạng thái: nhân viên <strong>chưa hoàn thành</strong>. Bạn có thể "Tiếp nhận" để điều hướng nhân viên tiếp tục, hoặc "Phân công lại" cho nhân viên khác.') 
+    : '';
+  document.getElementById('pxhBlockerSubmitBtn').textContent = blocker ? '✅ Tiếp nhận và điều hướng' : 'Báo PM tiếp nhận';
+  const typeRow = document.querySelector('#pxhBlockerType');
+  if (blocker && typeRow) typeRow.disabled = true;
+  if(!dlg.open) dlg.showModal();
+}
+function submitPxhBlocker(){
+  const factory = pxhBlockerFactory;
+  if(!factory) return;
+  const existing = state.pxhBlockers[factory.id];
+  const type = document.getElementById('pxhBlockerType').value;
+  const desc = document.getElementById('pxhBlockerDesc').value.trim();
+  const now = Date.now();
+  if(existing && existing.status === 'open'){
+    existing.resolvedAt = now;
+    existing.status = 'resolved';
+    delete state.pxhBlockers[factory.id];
+    toast('Đã tiếp nhận và điều hướng cho ' + factory.name + ' tiếp tục làm việc');
+    pmChatAppend('sys', `PM đã tiếp nhận vướng mắc của ${factory.name}. Nhân viên tiếp tục làm việc.`);
+    save(); closePxhBlocker(); renderGenericFactory(); return;
+  }
+  state.pxhBlockers[factory.id] = {type, desc, status:'open', createdAt: now, from: factory.name};
+  save();
+  pmChatAppend('sys', `⚠ ${factory.name} vừa báo vướng mắc: ${desc || '(không mô tả)'}`);
+  toast('Đã báo PM tiếp nhận vướng mắc của ' + factory.name);
+  closePxhBlocker();
+  renderGenericFactory();
+}
+function closePxhBlocker(){const dlg=document.getElementById('pxhBlockerDialog');if(dlg&&dlg.open)dlg.close()}
+
+function openPmChat(){
+  const panel = document.getElementById('meetingChatPanel');
+  if(!panel) return;
+  panel.hidden = false;
+  const body = document.getElementById('meetingChatBody');
+  if(body && body.childElementCount === 0){
+    pmChatAppend('pm', 'Chào bạn! Mình là PM điều phối. Có nhân viên nào vướng mắc hoặc cần bạn giao việc thì nhắn mình nhé.');
+  }
+  const input = document.getElementById('meetingChatInput');
+  if(input){input.focus()}
+}
+function pmChatAppend(who, text){
+  const body = document.getElementById('meetingChatBody');
+  if(!body) return;
+  const div = document.createElement('div');
+  div.className = 'meeting-chat-msg ' + who;
+  if(who === 'pm'){const w=document.createElement('span');w.className='who';w.textContent='PM Điều phối';div.appendChild(w)}
+  if(who === 'me'){const w=document.createElement('span');w.className='who';w.textContent='Bạn';div.appendChild(w)}
+  div.appendChild(document.createTextNode(text));
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+function pmChatLoading(show){
+  const body = document.getElementById('meetingChatBody');
+  if(!body) return;
+  if(show && !document.getElementById('meetingChatLoading')){
+    const div = document.createElement('div'); div.id='meetingChatLoading'; div.className='meeting-chat-loading'; div.textContent='PM đang trả lời…'; body.appendChild(div); body.scrollTop=body.scrollHeight;
+  } else if(!show){
+    const el = document.getElementById('meetingChatLoading'); if(el) el.remove();
+  }
+}
+async function pmChatSend(){
+  const input = document.getElementById('meetingChatInput');
+  const text = (input && input.value.trim()) || '';
+  if(!text) return;
+  input.value = '';
+  pmChatAppend('me', text);
+  const pmFactory = (workflowConfig.workflows || []).find(x => String(x.pxh_agent||'') === 'pxh-pm');
+  if(!pmFactory){ pmChatAppend('sys','Chưa tìm thấy nhân viên PM điều phối trong cấu hình.'); return; }
+  const step = (pmFactory.steps||[])[0];
+  if(!step){ pmChatAppend('sys','PM chưa có bước xử lý.'); return; }
+  const btn = document.getElementById('meetingChatSend');
+  if(btn) btn.disabled = true;
+  pmChatLoading(true);
+  try{
+    const result = await fetchJsonResponse('/api/script/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({factory_id:pmFactory.id,step_id:step.id,values:{task:text, project_dir:'D:\\Project\\LV\\MASTER\\pxhopencode', model:''}})});
+    activeHermesTaskId = result.task_id;
+    const taskKey = agentTaskKey(pmFactory.id, step.id);
+    state.agentTasks[taskKey] = {taskId: result.task_id, status:'queued'};
+    save();
+    pollPmChatTask(result.task_id);
+  }catch(error){
+    pmChatLoading(false);
+    pmChatAppend('sys','Không gửi được cho PM: ' + (error.message||error));
+    if(btn) btn.disabled = false;
+  }
+}
+function pollPmChatTask(taskId){
+  const btn = document.getElementById('meetingChatSend');
+  let seenDone = false;
+  const poll = async () => {
+    if(seenDone){ if(btn) btn.disabled=false; return; }
+    try{
+      const result = await fetchJsonResponse('/api/agent/status?id=' + encodeURIComponent(taskId));
+      const task = result.task || result;
+      const events = (task && (task.events || (task.agent_events||[]))) || [];
+      const isMeta = line => !line || /^session(?:[_\s-]*id)?\s*:/i.test(line) || /^(Dang goi|Đang gọi|\[opencode\]|ERR:)/i.test(line) || /^腳本任務已建立|^正在本機執行腳本/.test(line);
+      const agentLines = events.filter(e => e && ['agent','script'].includes(e.kind)).map(e => String(e.message||'')).filter(line => !isMeta(line));
+      const lastLine = agentLines.length ? agentLines[agentLines.length-1].trim() : '';
+      const done = task && ['completed','failed','error','interrupted'].includes(task.status);
+      if(done){
+        seenDone = true;
+        pmChatLoading(false);
+        if(btn) btn.disabled = false;
+        const errorLines = events.filter(e => e && e.kind === 'error').map(e => String(e.message||''));
+        const reply = lastLine || (errorLines.length ? errorLines[errorLines.length-1].trim() : '');
+        if(reply) pmChatAppend('pm', reply);
+        else pmChatAppend('sys', 'PM đã tiếp nhận yêu cầu của bạn.');
+        return;
+      }
+      if(lastLine && lastLine !== (state.pmChatLast || '')){
+        state.pmChatLast = lastLine;
+        pmChatAppend('pm', lastLine);
+      }
+      setTimeout(poll, 1000);
+    }catch(error){
+      pmChatLoading(false);
+      if(btn) btn.disabled = false;
+      pmChatAppend('sys','Mất kết nối khi chờ PM trả lời: ' + (error.message||error));
+    }
+  };
+  poll();
 }
 
 function officeLayout() {
@@ -2049,6 +2516,7 @@ function officeCanvasClick(e) {
     }
     switchFactory(w.id, true);
     setOfficeMode(false);
+    if (meetingMode) { meetingMode=false; state.meetingMode=false; save(); if (meeting.rafId) { cancelAnimationFrame(meeting.rafId); meeting.rafId=0; } const mw=document.getElementById('meetingWorkspace'); if(mw)mw.hidden=true; }
     toast(`Đã chuyển đến ${w.name} của bàn làm việc`);
     return;
   }
@@ -2076,15 +2544,48 @@ function officeFitToPanel() {
   }
 }
 
+function setMeetingMode(on) {
+  meetingMode = on;
+  if (on && officeMode) { officeMode = false; state.officeMode = false; if (office.rafId) { cancelAnimationFrame(office.rafId); office.rafId = 0; } }
+  state.meetingMode = on;
+  save();
+  const ws = document.getElementById('genericWorkspace');
+  const ow = document.getElementById('officeWorkspace');
+  const mw = document.getElementById('meetingWorkspace');
+  if (!ws || !ow || !mw) return;
+  const rh = document.getElementById('genericFactoryMain')?.querySelector('.right-head');
+  if (rh) rh.style.display = on ? 'none' : '';
+  if (office.rafId) { cancelAnimationFrame(office.rafId); office.rafId = 0; }
+  if (on) {
+    ws.hidden = true; ow.hidden = true; mw.hidden = false;
+    meetingFitToPanel();
+  } else {
+    if (meeting.rafId) { cancelAnimationFrame(meeting.rafId); meeting.rafId = 0; }
+    ws.hidden = false; ow.hidden = true; mw.hidden = true;
+  }
+  const vb = document.getElementById('viewConsoleBtn'), vo = document.getElementById('viewOfficeBtn'), vm = document.getElementById('viewMeetingBtn');
+  if (vb) vb.classList.toggle('active', !on);
+  if (vo) vo.classList.toggle('active', false);
+  if (vm) vm.classList.toggle('active', on);
+  document.querySelectorAll('[data-flow-tab]').forEach(b => {
+    const active = !on && b.dataset.flowTab === state.activeFlowTab;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+}
+
 function setOfficeMode(on) {
   officeMode = on;
+  if (on && meetingMode) { meetingMode = false; state.meetingMode = false; save(); const mw = document.getElementById('meetingWorkspace'); if (mw) mw.hidden = true; if (meeting.rafId) { cancelAnimationFrame(meeting.rafId); meeting.rafId = 0; } }
   state.officeMode = on;
   save();
   const ws = document.getElementById('genericWorkspace');
   const ow = document.getElementById('officeWorkspace');
+  const mw = document.getElementById('meetingWorkspace');
   if (!ws || !ow) return;
   const rh = document.getElementById('genericFactoryMain')?.querySelector('.right-head');
   if (rh) rh.style.display = on ? 'none' : '';
+  if (mw) mw.hidden = true;
   if (on) {
     ws.hidden = true; ow.hidden = false;
     const pxhPanel = document.getElementById('pxhTeamPanel');
@@ -2100,9 +2601,10 @@ function setOfficeMode(on) {
     if (cv) cv.hidden = false;
     ws.hidden = false; ow.hidden = true;
   }
-  const vb = document.getElementById('viewConsoleBtn'), vo = document.getElementById('viewOfficeBtn');
+  const vb = document.getElementById('viewConsoleBtn'), vo = document.getElementById('viewOfficeBtn'), vm = document.getElementById('viewMeetingBtn');
   if (vb) vb.classList.toggle('active', !on);
   if (vo) vo.classList.toggle('active', on);
+  if (vm) vm.classList.toggle('active', false);
   document.querySelectorAll('[data-flow-tab]').forEach(b => {
     const active = !on && b.dataset.flowTab === state.activeFlowTab;
     b.classList.toggle('active', active);
@@ -2112,7 +2614,7 @@ function setOfficeMode(on) {
 
 function switchFlowTab(name,step){
  state.activeFlowTab=name;save();
- if(officeMode)setOfficeMode(false);
+ if(officeMode||meetingMode){officeMode=false;meetingMode=false;state.officeMode=false;state.meetingMode=false;save();if(office.rafId){cancelAnimationFrame(office.rafId);office.rafId=0}if(meeting.rafId){cancelAnimationFrame(meeting.rafId);meeting.rafId=0}}
  document.getElementById('genericWorkspace').classList.toggle('output-mode',name==='output');
  document.querySelectorAll('[data-flow-tab]').forEach(button=>{const active=button.dataset.flowTab===name;button.classList.toggle('active',active);button.setAttribute('aria-selected',active?'true':'false')});
  document.querySelectorAll('[data-flow-panel]').forEach(panel=>panel.hidden=panel.dataset.flowPanel!==name);

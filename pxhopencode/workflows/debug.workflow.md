@@ -1,7 +1,7 @@
 # Workflow Gỡ lỗi — Sửa lỗi & Tối ưu
 
-> **LUẬT NGÔN NGỮ**: UI text = **tiếng Việt**. Code, log, debug messages = **tiếng Anh**. Debug game: headless test (`skills/games-testing/`).
-> Eval: `skills/games-testing/templates/game-eval-schema.ts`.
+> **LUẬT NGÔN NGỮ**: UI text = **tiếng Việt**. Code, log, debug messages = **tiếng Anh**. Debug game: headless test (`skills/pxh-qa/games-testing/`).
+> Eval: `skills/pxh-qa/games-testing/templates/game-eval-schema.ts`.
 > **ENFORCEMENT GATE:** Mỗi phase BẮT BUỘC chạy `enforce run <phase>` TRƯỚC, `enforce pass/fail <phase>` SAU. Bỏ qua = violation.
 
 ## Quy trình (8 bước)
@@ -46,7 +46,7 @@
 | Animation | FSM 6-8 state mượt | Blend tree |
 
 Chi tiết polish: `workflows/game.workflow.md` Bước 5.
-Eval assertions: `node skills/games-testing/templates/game-eval-schema.ts` → `node _shared/scripts/game-gen/eval-grader.js --threshold 0.85`
+Eval assertions: `node skills/pxh-qa/games-testing/templates/game-eval-schema.ts` → `node _shared/scripts/game-gen/eval-grader.js --threshold 0.85`
 
 ## Post-code: route qua company workflow phase 9-11
 Sau step 7 (Prevent) → route qua `workflows/company.workflow.md` phase 9-11 (Review→Build→Persist).

@@ -3,7 +3,7 @@
 ## Tổng quan
 Skill phát triển game 2.5D (isometric / pseudo-3D) HTML5. Phù hợp cho: RPG, strategy, city builder, simulation game với góc nhìn isometric.
 
-> **Bước 0: Download assets** — Chạy script ở `skills/games-assets/SKILL.md`. Dùng isometric tiles từ Kenney/OpenGameArt, fallback vẽ màu thủ công nếu không có.
+> **Bước 0: Download assets** — Chạy script ở `skills/pxh-expert/games-assets/SKILL.md`. Dùng isometric tiles từ Kenney/OpenGameArt, fallback vẽ màu thủ công nếu không có.
 
 ## Isometric Basics
 
@@ -53,4 +53,4 @@ Xem: `templates/build.sh`
 
 ### Tham khảo
 - Design: `game-design-h5-2.5d.md`
-- Main game skill: `skills/games-core/SKILL.md`
+- Main game skill: `skills/pxh-expert/games-core/SKILL.md`

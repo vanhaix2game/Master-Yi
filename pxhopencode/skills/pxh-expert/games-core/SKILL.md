@@ -6,7 +6,7 @@ description: Game engine core — fixed-timestep loop, scene manager, asset load
 # games-core — Game Engine Core
 
 ## Design System
-UX template → `_shared/design-system/design-tokens.css` (OKLCH colors, light/dark mode). Game HUD → `_shared/design-system/game-tokens.css`. Typed tokens → `_shared/design-system/design-tokens.ts`. 5 game palettes (VIBRANT/PASTEL/DARK/NEON/RETRO) → `skills/games-2d/templates/color-palettes.ts`.
+UX template → `_shared/design-system/design-tokens.css` (OKLCH colors, light/dark mode). Game HUD → `_shared/design-system/game-tokens.css`. Typed tokens → `_shared/design-system/design-tokens.ts`. 5 game palettes (VIBRANT/PASTEL/DARK/NEON/RETRO) → `skills/pxh-expert/games-2d/templates/color-palettes.ts`.
 
 ## Fixed-Timestep Game Loop (không lag, không giật)
 Fixed-timestep 60 FPS loop với accumulator, clamp dt chống spiral of death, cho phép fixedUpdate + render riêng.

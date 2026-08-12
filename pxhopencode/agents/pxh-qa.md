@@ -17,7 +17,7 @@ Xem `_shared/context-budget.md`. Chạy test = 1 command. Đọc output fail, kh
 Trước mỗi test cycle → load `process-verification` — evidence before claims.
 
 ## SKILL INTEGRATION
-Đọc `skills/webs-testing/SKILL.md` + templates trước khi viết test.
+Đọc `skills/pxh-qa/webs-testing/SKILL.md` + templates trước khi viết test.
 
 ## QUY TRÌNH
 0. Xác định loại dự án + framework test 1. Glob test files: `**/*.test.*`, `vitest.config.*` 2. Chạy: `npm run typecheck && npm run lint && npm test && npm run test:e2e` (fallback: vitest/playwright/pytest/cargo) 3. Đánh giá: ✅ PASS / ⚠️ WARN / ❌ FAIL (block release) 4. Bug → Task contract qua T2 (KHÔNG @mention):

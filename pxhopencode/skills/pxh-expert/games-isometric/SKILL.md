@@ -12,7 +12,7 @@ Xem file chi tiết:
 
 ## Testing
 `npx vitest run` | `npx vitest --coverage` (≥ 80%)
-Helper: `skills/games-testing/templates/phaser-test-helper.ts` — createHeadlessGame, advanceTime; test coordinate conversion, depth sort, A*
+Helper: `skills/pxh-qa/games-testing/templates/phaser-test-helper.ts` — createHeadlessGame, advanceTime; test coordinate conversion, depth sort, A*
 
 ## Mẫu chính (chống lag)
 - **Frustum culling**: Chỉ vẽ tile trong viewport — tính tile min/max từ camera bounds

@@ -33,7 +33,7 @@ Luồng: `User Prompt → Compiler → IR → pxh-pm analyze → Route T3`
 ### Cách 3: Gọi thủ công từ agent
 
 ```markdown
-Load `skills/prompt-compiler/SKILL.md` → dùng Pipeline API:
+Load `skills/pxh-pm/prompt-compiler/SKILL.md` → dùng Pipeline API:
 - `prompt-compiler/src/pipeline/orchestrator.ts` → `new Pipeline().compile(prompt)`
 - Output: `{ ir: PromptIR, prompt: string, metrics: CompilerMetrics }`
 ```

@@ -1,10 +1,10 @@
 # Workflow Game — Phát triển game HTML5 Pro
 
 > **LUẬT NGÔN NGỮ**: UI game = **tiếng Việt**. Code, variable, comments, animation state = **tiếng Anh**.
-> Testing: Vitest headless. Orchestrator: `skills/game-development/SKILL.md` → route implementation + principle.
+> Testing: Vitest headless. Orchestrator: `skills/pxh-expert/game-development/SKILL.md` → route implementation + principle.
 > Genre: `skills/_shared/game-genre-reference.md` (Decision Tree → anti-patterns).
 > **ENFORCEMENT GATE:** Mỗi phase BẮT BUỘC chạy `enforce run <phase>` TRƯỚC, `enforce pass/fail <phase>` SAU. Bỏ qua = violation.
-> Black-box scripts: `_shared/scripts/game-gen/`. Eval: `skills/games-testing/templates/game-eval-schema.ts`.
+> Black-box scripts: `_shared/scripts/game-gen/`. Eval: `skills/pxh-qa/games-testing/templates/game-eval-schema.ts`.
 
 ## Bước 0: Download assets
 ```powershell
@@ -15,9 +15,9 @@ powershell.exe -ExecutionPolicy Bypass -File "_shared/scripts/download-games-ass
 
 | Loại | Engine | Skill | Templates |
 |------|--------|-------|-----------|
-| 2D | Phaser 3 | games-2d | skills/games-2d/templates/ |
-| 2.5D | Isometric + Phaser | games-isometric | skills/games-isometric/templates/ |
-| 3D | Three.js | games-3d | skills/games-3d/templates/ |
+| 2D | Phaser 3 | games-2d | skills/pxh-expert/games-2d/templates/ |
+| 2.5D | Isometric + Phaser | games-isometric | skills/pxh-expert/games-isometric/templates/ |
+| 3D | Three.js | games-3d | skills/pxh-expert/games-3d/templates/ |
 | 3D Racing | Three.js + Cannon-es | games-3d | Xem game-design-h5-marble-racing.md |
 
 ## Bước 2: Scaffold
@@ -25,7 +25,7 @@ powershell.exe -ExecutionPolicy Bypass -File "_shared/scripts/download-games-ass
 npm init -y; npm install -D vite; cp _shared/templates/gitignore-template.md ../.gitignore
 npm install phaser  # hoặc three / three+cannon-es
 cp -r skills/<engine>/templates/* src/
-cp skills/games-testing/templates/vitest.config.ts ./
+cp skills/pxh-qa/games-testing/templates/vitest.config.ts ./
 npm install -D vitest happy-dom
 ```
 
@@ -75,7 +75,7 @@ node _shared/scripts/game-gen/eval-grader.js --input eval-report.json --threshol
 ```bash
 npm run build
 ```
-Xem: `skills/games-pwa/SKILL.md`, `skills/games-deploy/SKILL.md`
+Xem: `skills/pxh-expert/games-pwa/SKILL.md`, `skills/pxh-devops/games-deploy/SKILL.md`
 
 ## Anti-Rationalization
 | Excuse | Reality |
@@ -107,10 +107,10 @@ Sau Bước 7 (Build & Deploy) → route qua `workflows/company.workflow.md` pha
 - Quá 3 lần → báo user + snapshot state
 
 ## References
-- Orchestrator: `skills/game-development/SKILL.md`
+- Orchestrator: `skills/pxh-expert/game-development/SKILL.md`
 - Genre: `skills/_shared/game-genre-reference.md`
 - Principle: game-art, game-design, multiplayer, vr-ar, web-games, mobile-games, pc-games
-- Design: skills/games-2d/game-design-h5-2d.md, games-3d/game-design-h5-3d.md, games-3d/game-design-h5-marble-racing.md
+- Design: skills/pxh-expert/games-2d/game-design-h5-2d.md, games-3d/game-design-h5-3d.md, games-3d/game-design-h5-marble-racing.md
 - Assets: games-assets, Performance: games-optimization, Testing: games-testing, Audio: games-audio
 
 ## Verification

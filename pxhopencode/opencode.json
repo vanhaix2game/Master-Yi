@@ -48,25 +48,25 @@
     "web": { "template": ".opencode/workflows/web.workflow.md" },
     "3d": {
       "description": "3D web experience — Three.js, React Three Fiber, Spline, WebGL, interactive 3D scenes, product configurators",
-      "template": "Load `.opencode/skills/3d-web-experience/SKILL.md`. Dùng `.opencode/workflows/web.workflow.md` với `classified_skills: 3d-web-experience`."
+      "template": "Load `.opencode/skills/pxh-expert/3d-web-experience/SKILL.md`. Dùng `.opencode/workflows/web.workflow.md` với `classified_skills: 3d-web-experience`."
     },
     "game": {
       "description": "Phát triển game HTML5 — support 2D (Phaser), 3D (Three.js), Isometric. Load orchestrator + workflow.",
-      "template": "Load `.opencode/skills/game-development/SKILL.md` → route đến đúng sub-skill theo platform/dimension. Sau đó chạy `.opencode/workflows/game.workflow.md`."
+      "template": "Load `.opencode/skills/pxh-expert/game-development/SKILL.md` → route đến đúng sub-skill theo platform/dimension. Sau đó chạy `.opencode/workflows/game.workflow.md`."
     },
     "ai": { "template": ".opencode/workflows/ai.workflow.md" },
     "tool": { "template": ".opencode/workflows/tool.workflow.md" },
     "ui-ux": {
       "description": "UI/UX design — web (React/Tailwind), game HUD, CLI output",
-      "template": "Load `.opencode/skills/ui-ux/SKILL.md`. Chạy design workflow."
+      "template": "Load `.opencode/skills/pxh-ui-ux/ui-ux/SKILL.md`. Chạy design workflow."
     },
     "preview": {
       "description": "Start game live preview dev server (Vite HMR + browser auto-open)",
-      "template": "Load `.opencode/skills/games-preview/SKILL.md`. Then run: `npm run dev` (hoặc `npx vite --open --host` nếu chưa có script)."
+      "template": "Load `.opencode/skills/pxh-expert/games-preview/SKILL.md`. Then run: `npm run dev` (hoặc `npx vite --open --host` nếu chưa có script)."
     },
     "compile": {
       "description": "Prompt Compiler — phân tích intent, extract constraints, sinh IR, tối ưu prompt cho LLM backend. Zero AI, zero token.",
-      "template": "Load `.opencode/skills/prompt-compiler/SKILL.md`. Input → Pipeline 14 stages → IR → Backend prompt."
+      "template": "Load `.opencode/skills/pxh-pm/prompt-compiler/SKILL.md`. Input → Pipeline 14 stages → IR → Backend prompt."
     },
     "init": {
       "description": "Khởi tạo project mới với scaffold wizard",

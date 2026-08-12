@@ -331,7 +331,7 @@ if ($downloaded) {
   Write-Output "  - Quaternius: https://quaternius.com (3D)"
   Write-Output ""
   Write-Output "  Or use procedural generation via:"
-  Write-Output "  - skills/games-assets/templates/placeholders.ts"
-  Write-Output "  - skills/games-assets/templates/sound-manager.ts"
+  Write-Output "  - skills/pxh-expert/games-assets/templates/placeholders.ts"
+  Write-Output "  - skills/pxh-expert/games-assets/templates/sound-manager.ts"
 }
 Write-Output ""

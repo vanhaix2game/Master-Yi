@@ -19,7 +19,7 @@
 - Node CLI: `npm init && npm install commander`
 - Rust CLI: `cargo init && cargo add clap`
 - Python CLI: `pip install click`
-- VS Code: dùng template trong `skills/tools-extensions/templates/` hoặc `npm create @vscode/extension`
+- VS Code: dùng template trong `skills/pxh-expert/tools-extensions/templates/` hoặc `npm create @vscode/extension`
 - Sau setup: tạo `.gitignore` trong TARGET với `.opencode/` và `.github/` (xem `_shared/templates/gitignore-template.md`)
 
 ## Bước 3: Flow code
